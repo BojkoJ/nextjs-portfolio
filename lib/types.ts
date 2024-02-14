@@ -8,3 +8,10 @@ export type ThemeContextType = {
   theme: Theme;
   toggleTheme: () => void;
 };
+
+export type Language = "english" | "czech";
+
+export type LanguageContextType = {
+  language: Language;
+  toggleLanguage: () => void;
+};

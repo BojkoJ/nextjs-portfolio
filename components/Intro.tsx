@@ -9,11 +9,14 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { useLanguage } from "@/context/language-context";
 
 const Intro = () => {
   const { ref } = useSectionInView("Home", 0.5);
 
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
+  const { language } = useLanguage();
 
   return (
     <section
@@ -61,13 +64,27 @@ const Intro = () => {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className='font-bold'>Hello, Name&apos;s Jan.</span> I&apos;m a{" "}
-        <span className='font-bold'>
-          full-stack developer, UI/UX designer and Computer Science student
-        </span>{" "}
-        with <span className='font-bold'>2 years</span> of experience. I enjoy
-        building <span className='italic'>websites & web apps</span>. My focus
-        is <span className='underline'>React (Next.js)</span>.
+        {language === "english" ? (
+          <>
+            <span className='font-bold'>Hello, Name&apos;s Jan.</span>I&apos;m a{" "}
+            <span className='font-bold'>
+              full-stack developer, UI/UX designer and Computer Science student
+            </span>{" "}
+            with <span className='font-bold'>2 years</span> of experience. I
+            enjoy building <span className='italic'>websites & web apps</span>.
+            My focus is <span className='underline'>React (Next.js)</span>.
+          </>
+        ) : (
+          <>
+            <span className='font-bold'>Ahoj, Jmenuje se Jan.</span> Jsem{" "}
+            <span className='font-bold'>
+              full-stack vývojář, UI/UX designér and student Informatiky
+            </span>{" "}
+            s <span className='font-bold'>dvouletou</span> praxí. Baví mě vývoj{" "}
+            <span className='italic'>webů & webových aplikací</span>. Zaměřuju
+            se na <span className='underline'>React (Next.js)</span>.
+          </>
+        )}
       </motion.h1>
 
       <motion.div
@@ -86,7 +103,8 @@ const Intro = () => {
             setTimeOfLastClick(Date.now());
           }}
         >
-          Contact me here{" "}
+          {language === "english" ? <>Contact me here</> : <>Konaktujte mě</>}
+
           <BsArrowRight className='opacity-70 group-hover:translate-x-1 transition' />
         </Link>
 
@@ -95,7 +113,7 @@ const Intro = () => {
           href='/CV.pdf'
           download={true}
         >
-          Download CV{" "}
+          {language === "english" ? <>Download CV</> : <>Stáhnout CV</>}
           <HiDownload className='opacity-60 group-hover:translate-y-1 transition' />
         </a>
 

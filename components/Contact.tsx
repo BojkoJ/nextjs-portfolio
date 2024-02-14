@@ -7,9 +7,11 @@ import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "./SubmitBtn";
 import { toast } from "sonner";
+import { useLanguage } from "@/context/language-context";
 
 const Contact = () => {
   const { ref } = useSectionInView("Contact", 0.5);
+  const { language } = useLanguage();
 
   return (
     // min říká- vyber menší z těchto dvou - takže obrazovky užší než 38rem tak tam bude form 100% široký
@@ -30,14 +32,26 @@ const Contact = () => {
         once: true,
       }}
     >
-      <SectionHeading>Contact Me</SectionHeading>
-      <p className='text-gray-700 text-center -mt-5 -mb-2 px-3 sm:px-0 dark:text-white/80'>
-        Please contact me directly at{" "}
-        <a className='underline' href='mailto:honzabojko@seznam.cz'>
-          honzabojko@seznam.cz
-        </a>{" "}
-        or through this form.
-      </p>
+      <SectionHeading>
+        {language === "english" ? <>Contact Me</> : <>Kontaktujte Mě</>}
+      </SectionHeading>
+      {language === "english" ? (
+        <p className='text-gray-700 text-center -mt-5 -mb-2 px-3 sm:px-0 dark:text-white/80'>
+          Please contact me directly at{" "}
+          <a className='underline' href='mailto:honzabojko@seznam.cz'>
+            honzabojko@seznam.cz
+          </a>{" "}
+          or through this form.
+        </p>
+      ) : (
+        <p className='text-gray-700 text-center -mt-5 -mb-2 px-3 sm:px-0 dark:text-white/80'>
+          Kontaktujte mě přímo na{" "}
+          <a className='underline' href='mailto:honzabojko@seznam.cz'>
+            honzabojko@seznam.cz
+          </a>{" "}
+          nebo přes tento formulář.
+        </p>
+      )}
 
       <form
         className='mt-10 flex flex-col dark:text-black'
@@ -58,14 +72,14 @@ const Contact = () => {
           required
           maxLength={250}
           className='h-14 rounded-lg border border-black/10 px-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none'
-          placeholder='Your email'
+          placeholder={language === "english" ? "Your email" : "Váš email"}
         />
         <textarea
           name='message'
           className='h-52 my-3 rounded-lg border border-black/10 p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none'
           required
           maxLength={5000}
-          placeholder='Your message'
+          placeholder={language === "english" ? "Your message" : "Vaše zpráva"}
         />
         <SubmitBtn />
       </form>

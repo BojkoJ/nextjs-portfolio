@@ -7,19 +7,26 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { experiencesData } from "@/lib/data";
+import { experiencesData, experiencesDataCz } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { useTheme } from "@/context/theme-context";
+import { useLanguage } from "@/context/language-context";
 
 const Experience = () => {
   const { ref } = useSectionInView("Experience", 0.5);
   const { theme } = useTheme();
+  const { language } = useLanguage();
+
+  let ExperienceData =
+    language === "english" ? experiencesData : experiencesDataCz;
 
   return (
     <section id='experience' className='scroll-mt-28 mb-28 sm:mb-40' ref={ref}>
-      <SectionHeading>My Experience</SectionHeading>
+      <SectionHeading>
+        {language === "english" ? <>My Experience</> : <>Moje Zkušenosti</>}
+      </SectionHeading>
       <VerticalTimeline lineColor=''>
-        {experiencesData.map((experienceItem, index) => (
+        {ExperienceData.map((experienceItem, index) => (
           <React.Fragment key={index}>
             <VerticalTimelineElement
               contentStyle={{
