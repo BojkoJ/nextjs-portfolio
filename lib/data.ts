@@ -214,7 +214,7 @@ export const projectsDataCz = [
   {
     title: "NoteIt",
     description:
-      "NoteIt je aplikace psaná v Next.js, která poskytuje platformu pro pořizování, organizaci a sdílení poznámek. Inspirováno webem Notion.",
+      "NoteIt je aplikace psaná v Next.js, která poskytuje platformu pro pořizování, organizaci a sdílení poznámek. Inspirováno platformou Notion.",
     tags: [
       "React",
       "TypeScript",

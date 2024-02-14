@@ -66,7 +66,8 @@ const Intro = () => {
       >
         {language === "english" ? (
           <>
-            <span className='font-bold'>Hello, Name&apos;s Jan.</span>I&apos;m a{" "}
+            <span className='font-bold'>Hello, Name&apos;s Jan.</span> I&apos;m
+            a{" "}
             <span className='font-bold'>
               full-stack developer, UI/UX designer and Computer Science student
             </span>{" "}
@@ -76,7 +77,7 @@ const Intro = () => {
           </>
         ) : (
           <>
-            <span className='font-bold'>Ahoj, Jmenuje se Jan.</span> Jsem{" "}
+            <span className='font-bold'>Ahoj, Jmenuji se Jan.</span> Jsem{" "}
             <span className='font-bold'>
               full-stack vývojář, UI/UX designér and student Informatiky
             </span>{" "}
