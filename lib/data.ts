@@ -118,7 +118,7 @@ export const experiencesDataCz = [
     location: "Frýdek-Místek, CZ",
     company: "POJFM",
     description:
-      "Absolvoval jsem 4 roky studia IT na střední škole. Dokončil jsem svá středoškolská studia s maturitní zkouškou s vyznamenáním.",
+      "Absolvoval jsem 4 roky studia oboru IT na střední škole. Dokončil jsem svoje středoškolské studium maturitní zkouškou s vyznamenáním.",
     icon: React.createElement(LuGraduationCap),
     date: "2018 - 2022",
   },
@@ -136,7 +136,7 @@ export const experiencesDataCz = [
     location: "Ostrava, CZ",
     company: "VŠB-TUO",
     description:
-      "Momentálně studuji Informatiku na bakalářském stupni na VŠB - Technické univerzitě Ostrava.",
+      "Momentálně studuji Informatiku na bakalářském stupni na VŠB - Technické univerzitě v Ostravě.",
     icon: React.createElement(FaUniversity),
     date: "2022 - současnost",
   },
@@ -145,7 +145,7 @@ export const experiencesDataCz = [
     location: "Bystřice, CZ",
     company: "PICKERING Interfaces",
     description:
-      "Momentálně jsem zaměstnán jako Junior Software Developer. Zde jsem předesignoval a vytvořil nový software pro ovládání LXI simulátoru v jazyce Golang.",
+      "Momentálně jsem zaměstnaný jako Junior Software Developer. Zde jsem předesignoval a vytvořil nový software pro ovládání LXI simulátoru v jazyce Golang.",
     icon: React.createElement(CgWorkAlt),
     date: "2023 - současnost",
   },
@@ -214,7 +214,7 @@ export const projectsDataCz = [
   {
     title: "NoteIt",
     description:
-      "NoteIt je aplikace psaná v Next.js, která vytváří platformu pro pořizování, organizaci a sdílení poznámek. Inspirováno webem Notion.",
+      "NoteIt je aplikace psaná v Next.js, která poskytuje platformu pro pořizování, organizaci a sdílení poznámek. Inspirováno webem Notion.",
     tags: [
       "React",
       "TypeScript",

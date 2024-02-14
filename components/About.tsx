@@ -69,7 +69,7 @@ const About = () => {
             svou vášeň pro informatiku. Proto v současné době studuji na vysoké
             škole <span className='font-medium'>obor Informatika</span>.{" "}
             <span className='italic'>Na programování mám nejraději</span> aspekt
-            řešení problémů.<span className='underline'> Zbožňuju</span> en
+            řešení problémů. <span className='underline'>Zbožňuju</span> ten
             pocit, když konečně přijdu na řešení nějakého problému. Můj základní
             stack tvoří{" "}
             <span className='font-medium'>
@@ -82,11 +82,10 @@ const About = () => {
           </p>
           <p>
             {" "}
-            <span className='italic'>Když zrovna nekóduji</span>, Irád trávím
-            čas se svou přítelkyní, trénuji Muay Thai nebo si hraju se svým
-            psem. Rád se také{" "}
-            <span className='font-medium'>učím novým věcem</span>. V současné
-            době se učím o{" "}
+            <span className='italic'>Když zrovna nekóduji</span>, rád trávím čas
+            se svou přítelkyní, trénuji Muay Thai nebo si hraju se svým psem.
+            Rád se také <span className='font-medium'>učím novým věcem</span>. V
+            současné době se učím o{" "}
             <span className='font-medium'>
               Nietzscheho filozofii a historii Muay Thai
             </span>

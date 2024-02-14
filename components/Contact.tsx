@@ -59,11 +59,19 @@ const Contact = () => {
           const { data, error } = await sendEmail(formData);
 
           if (error) {
-            toast.error("Something went wrong, email could not be sent.");
+            let errorToastMessage =
+              language === "english"
+                ? "Something went wrong, email could not be sent."
+                : "Něco se pokazilo, váš email nebyl odeslán.";
+            toast.error(errorToastMessage);
             return;
           }
 
-          toast.success("Your email was succesfully sent.");
+          let successToastMessage =
+            language === "english"
+              ? "Your email was succesfully sent."
+              : "Váš email byl úspěšně odeslán.";
+          toast.success(successToastMessage);
         }}
       >
         <input
