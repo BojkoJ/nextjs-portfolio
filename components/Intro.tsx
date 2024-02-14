@@ -79,7 +79,7 @@ const Intro = () => {
           <>
             <span className='font-bold'>Ahoj, Jmenuji se Jan.</span> Jsem{" "}
             <span className='font-bold'>
-              full-stack vývojář, UI/UX designér and student Informatiky
+              full-stack vývojář, UI/UX designér a student Informatiky
             </span>{" "}
             s <span className='font-bold'>dvouletou</span> praxí. Baví mě vývoj{" "}
             <span className='italic'>webů & webových aplikací</span>. Zaměřuju
