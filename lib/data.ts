@@ -1,11 +1,11 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
 import { FaUniversity } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import autoskola from "@/public/autoskola.png";
 import breadit from "@/public/breadit.png";
 import noteit from "@/public/noteit.png";
+import simulator from "@/public/simulator.png";
 
 export const links = [
   {
@@ -200,6 +200,15 @@ export const projectsData = [
     imageUrl: breadit,
     projectUrl: "https://nextjs-breadit.vercel.app",
   },
+  {
+    title: "LXI Simulator",
+    description:
+      "New, redesigned LXI simulator for Pickering Interfaces written in Golang, Gin instead of the old version in Perl, providing users more friendly and modern interface and better code structure.",
+    tags: ["HTML", "CSS", "JavaScript", "Go", "Gin", "UI/UX", "Figma"],
+    imageUrl: simulator,
+    projectUrl:
+      "https://www.pickeringtest.com/en-us/product/60-901-001-lxi-simulation-tool",
+  },
 ] as const;
 
 export const projectsDataCz = [
@@ -250,6 +259,15 @@ export const projectsDataCz = [
     ],
     imageUrl: breadit,
     projectUrl: "https://nextjs-breadit.vercel.app",
+  },
+  {
+    title: "LXI Simulator",
+    description:
+      "Nový, přepracovaný LXI simulátor pro Pickering Interfaces napsaný v jazyce Golang, Gin namísto staré verze v Perlu, který uživatelům poskytuje přívětivější a modernější rozhraní a lepší strukturu kódu.",
+    tags: ["HTML", "CSS", "JavaScript", "Go", "Gin", "UI/UX", "Figma"],
+    imageUrl: simulator,
+    projectUrl:
+      "https://www.pickeringtest.com/en-us/product/60-901-001-lxi-simulation-tool",
   },
 ] as const;
 
