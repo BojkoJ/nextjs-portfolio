@@ -6,7 +6,7 @@ import autoskola from "@/public/autoskola.png";
 import breadit from "@/public/breadit.png";
 import noteit from "@/public/noteit.png";
 import simulator from "@/public/simulator.png";
-import digishark from "@/public/digishark.PNG";
+import digishark from "@/public/shark.png";
 
 export const links = [
 	{
