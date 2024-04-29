@@ -7,6 +7,7 @@ import breadit from "@/public/breadit.png";
 import noteit from "@/public/noteit.png";
 import simulator from "@/public/simulator.png";
 import martazahrada from "@/public/martazahrada.png";
+import digishark from "@/public/shark.png";
 
 export const links = [
 	{
@@ -211,6 +212,27 @@ export const projectsData = [
 			"https://www.pickeringtest.com/en-us/product/60-901-001-lxi-simulation-tool",
 	},
 	{
+		title: "DigiShark",
+		description:
+			"DigiShark is a czech e-commerce platform for selling quality digital products like Icon sets and UI Kits. It is a full-stack application build in Next.js and TypeScript.",
+		tags: [
+			"React",
+			"Next.js",
+			"TypeScript",
+			"ShadCn-UI",
+			"tRPC",
+			"Tailwind",
+			"LucideReact",
+			"PayloadCMS",
+			"Zod",
+			"MongoDB",
+			"Stripe",
+			"Zustand",
+		],
+		imageUrl: digishark,
+		projectUrl: "https://digishark.up.railway.app/",
+	},
+	{
 		title: "Martazahrada",
 		description:
 			"Martazahrada is a freelance e-commerce project (currently under construction), where I completely designed UI/UX, built frontend, backend and CMS. I used a modern, cutting-edge tech-stack.",
@@ -223,6 +245,7 @@ export const projectsData = [
 			"Zustand",
 			"Figma",
 			"UI/UX",
+			"PostgreSQL",
 		],
 		imageUrl: martazahrada,
 		projectUrl: "https://www.martazahrada.cz",
@@ -288,6 +311,27 @@ export const projectsDataCz = [
 			"https://www.pickeringtest.com/en-us/product/60-901-001-lxi-simulation-tool",
 	},
 	{
+		title: "DigiShark",
+		description:
+			"DigiShark je platforma pro prodej digitálních produktů, jako jsou Sady ikon a UI Kity. Je to full-stack webová aplikace vybudovaná s Next.js pomocí TypeScriptu.",
+		tags: [
+			"React",
+			"Next.js",
+			"TypeScript",
+			"ShadCn-UI",
+			"tRPC",
+			"Tailwind",
+			"LucideReact",
+			"PayloadCMS",
+			"Zod",
+			"MongoDB",
+			"Stripe",
+			"Zustand",
+		],
+		imageUrl: digishark,
+		projectUrl: "https://digishark.up.railway.app/",
+	},
+	{
 		title: "Martazahrada",
 		description:
 			"Martazahrada je freelance e-commerce projekt (aktuálně ve výstavbě), kde jsem kompletně navrhnul UI/UX, vybudoval frontend, backend, tak i CMS. Využil jsem moderní, cutting-edge tech-stack. ",
@@ -300,6 +344,7 @@ export const projectsDataCz = [
 			"Zustand",
 			"Figma",
 			"UI/UX",
+			"PostgreSQL",
 		],
 		imageUrl: martazahrada,
 		projectUrl: "https://www.martazahrada.cz",
