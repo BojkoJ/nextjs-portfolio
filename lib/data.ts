@@ -395,6 +395,7 @@ export const skillsData = [
 	"React",
 	"TypeScript",
 	"JavaScript",
+	"Go",
 	"Node.js",
 	"Express.js",
 	"HTML",
@@ -413,7 +414,5 @@ export const skillsData = [
 	"PostgreSQL",
 	"MySQL",
 	"C#/.Net",
-	"Go",
 	"Python",
-	"C",
 ] as const;
