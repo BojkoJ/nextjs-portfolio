@@ -8,6 +8,7 @@ import noteit from "@/public/noteit.png";
 import simulator from "@/public/simulator.png";
 import martazahrada from "@/public/martazahrada.png";
 import digishark from "@/public/shark.png";
+import effortly from "@/public/effortly.png";
 
 export const links = [
 	{
@@ -230,7 +231,7 @@ export const projectsData = [
 			"Zustand",
 		],
 		imageUrl: digishark,
-		projectUrl: "https://digishark.up.railway.app/",
+		projectUrl: "https://nextjs-digishark-production.up.railway.app",
 	},
 	{
 		title: "Martazahrada",
@@ -249,6 +250,25 @@ export const projectsData = [
 		],
 		imageUrl: martazahrada,
 		projectUrl: "https://www.martazahrada.cz",
+	},
+	{
+		title: "Effortly",
+		description:
+			"Effortly is a fullstack Next.js 14 app recreating the functionalities of Trello. Key featuers are organizations, drag&drop kanban boards, subscriptions and activity log.",
+		tags: [
+			"Next.js",
+			"TypeScript",
+			"React",
+			"ShadCn-UI",
+			"Server Actions",
+			"Zustand",
+			"TailwindCSS",
+			"Prisma",
+			"Clerk Auth",
+			"PostgreSQL",
+		],
+		imageUrl: effortly,
+		projectUrl: "https://effortly.vercel.app",
 	},
 ] as const;
 
@@ -329,7 +349,7 @@ export const projectsDataCz = [
 			"Zustand",
 		],
 		imageUrl: digishark,
-		projectUrl: "https://digishark.up.railway.app/",
+		projectUrl: "https://nextjs-digishark-production.up.railway.app",
 	},
 	{
 		title: "Martazahrada",
@@ -349,31 +369,50 @@ export const projectsDataCz = [
 		imageUrl: martazahrada,
 		projectUrl: "https://www.martazahrada.cz",
 	},
+	{
+		title: "Effortly",
+		description:
+			"Effortly je fullstack aplikace psaná v Next.js 14, která přetváří funkce aplikace Trello. Klíčovými funkcemi jsou organizace, drag&drop kanban tabule, odběry, aktivitní log a další.",
+		tags: [
+			"Next.js",
+			"TypeScript",
+			"React",
+			"ShadCn-UI",
+			"Server Actions",
+			"Zustand",
+			"TailwindCSS",
+			"Prisma",
+			"Clerk Auth",
+			"PostgreSQL",
+		],
+		imageUrl: effortly,
+		projectUrl: "https://effortly.vercel.app",
+	},
 ] as const;
 
 export const skillsData = [
 	"Next.js",
-	"React.js",
+	"React",
 	"TypeScript",
 	"JavaScript",
+	"Go",
 	"Node.js",
 	"Express.js",
 	"HTML",
 	"CSS",
-	"Git",
 	"TailwindCSS",
+	"Git",
 	"Figma",
 	"UI/UX design",
-	"ShadCn-UI",
 	"Framer Motion",
 	"tRPC",
 	"Zustand",
 	"Payload CMS",
 	"Prisma",
+	"Drizzle",
 	"MongoDB",
 	"PostgreSQL",
 	"MySQL",
-	"C",
-	"C#",
-	"Go",
+	"C#/.Net",
+	"Python",
 ] as const;
