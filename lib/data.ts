@@ -108,7 +108,7 @@ export const experiencesData = [
 		location: "Bystřice, CZ",
 		company: "PICKERING Interfaces",
 		description:
-			"I am currently employed as Junior Software Developer. I redesigned and created new software for controlling LXI simulator in Golang.",
+			"I am currently employed as Junior Software Developer. Here I work mostly with Go, Python, JavaScript, React and do UI/UX.",
 		icon: React.createElement(CgWorkAlt),
 		date: "2023 - present",
 	},
@@ -147,7 +147,7 @@ export const experiencesDataCz = [
 		location: "Bystřice, CZ",
 		company: "PICKERING Interfaces",
 		description:
-			"Momentálně jsem zaměstnaný jako Junior Software Developer. Zde jsem předesignoval a vytvořil nový software pro ovládání LXI simulátoru v jazyce Golang.",
+			"Momentálně jsem zaměstnaný jako Junior Software Developer. Zde pracuji převážně s Go, Pythonem, JavaScriptem, Reactem a dělám UI/UX design.",
 		icon: React.createElement(CgWorkAlt),
 		date: "2023 - současnost",
 	},
