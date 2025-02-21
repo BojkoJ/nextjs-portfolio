@@ -71,7 +71,7 @@ const Intro = () => {
             <span className='font-bold'>
               full-stack developer, UI/UX designer and Computer Science student
             </span>{" "}
-            with <span className='font-bold'>2 years</span> of experience. I
+            with <span className='font-bold'>3 years</span> of experience. I
             enjoy building <span className='italic'>websites & web apps</span>.
             My focus is <span className='underline'>React (Next.js)</span>.
           </>
@@ -81,7 +81,7 @@ const Intro = () => {
             <span className='font-bold'>
               full-stack vývojář, UI/UX designér a student Informatiky
             </span>{" "}
-            s <span className='font-bold'>dvouletou</span> praxí. Baví mě vývoj{" "}
+            s <span className='font-bold'>tříletou</span> praxí. Baví mě vývoj{" "}
             <span className='italic'>webů & webových aplikací</span>. Zaměřuju
             se na <span className='underline'>React (Next.js)</span>.
           </>
