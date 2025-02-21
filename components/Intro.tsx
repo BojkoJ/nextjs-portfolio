@@ -73,7 +73,7 @@ const Intro = () => {
             </span>{" "}
             with <span className='font-bold'>3 years</span> of experience. I
             enjoy building <span className='italic'>websites & web apps</span>.
-            My focus is <span className='underline'>React (Next.js)</span>.
+            My focus is <span className='underline'>React and Next.js</span>.
           </>
         ) : (
           <>
@@ -83,7 +83,7 @@ const Intro = () => {
             </span>{" "}
             s <span className='font-bold'>tříletou</span> praxí. Baví mě vývoj{" "}
             <span className='italic'>webů & webových aplikací</span>. Zaměřuju
-            se na <span className='underline'>React (Next.js)</span>.
+            se na <span className='underline'>React a Next.js</span>.
           </>
         )}
       </motion.h1>
