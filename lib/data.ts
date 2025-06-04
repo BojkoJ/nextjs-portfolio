@@ -100,7 +100,7 @@ export const experiencesData = [
         location: "Ostrava, CZ",
         company: "VŠB-TUO",
         description: "Bachelor of Computer Science, 2025",
-        icon: React.createElement(FaUniversity),
+        icon: React.createElement(LuGraduationCap),
         date: "2022 - 2025",
     },
     {
@@ -138,7 +138,7 @@ export const experiencesDataCz = [
         location: "Ostrava, CZ",
         company: "VŠB-TUO",
         description: "Bakalář Informatiky, 2025",
-        icon: React.createElement(FaUniversity),
+        icon: React.createElement(LuGraduationCap),
         date: "2022 - 2025",
     },
     {
