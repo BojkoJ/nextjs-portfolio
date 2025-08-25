@@ -9,6 +9,8 @@ import simulator from "@/public/simulator.png";
 import martazahrada from "@/public/martazahrada.png";
 import digishark from "@/public/shark.png";
 import effortly from "@/public/effortly.png";
+import nxsx from "@/public/nxsx.png"
+import autoskola2 from "@/public/poppkova2.png";
 
 export const links = [
     {
@@ -159,7 +161,7 @@ export const projectsData = [
             "I created this begginer project as my long term graduation thesis on high school with only basic knowledge of web-development, and that started my passion for this field.",
         tags: ["HTML", "CSS", "PHP", "MySQL", "UI/UX"],
         imageUrl: autoskola,
-        projectUrl: "https://www.autoskolapoppkova.cz",
+        projectUrl: "https://github.com/BojkoJ/fullstack-driving-school",
     },
     {
         title: "NoteIt",
@@ -268,6 +270,39 @@ export const projectsData = [
         imageUrl: effortly,
         projectUrl: "https://effortly.vercel.app",
     },
+    {
+        title: "Nxsxnity",
+        description:
+            "Nxsxnity is a fullstack e-commerce platform with CMS as one of my freelance projects. Key features are CMS, product, variants and eshop content management, custom UI, stripe, packeta, and more.",
+        tags: [
+            "Next.js",
+            "TypeScript",
+            "React",
+            "ShadCn-UI",
+            "Server Actions",
+            "Zustand",
+            "TailwindCSS",
+            "PayloadCMS",
+            "PostgreSQL",
+        ],
+        imageUrl: nxsx,
+        projectUrl: "https://nxsx.store",
+    },
+    {
+        title: "Poppková Driving school v2.0",
+        description:
+            "This is a new version of website that was my first project. It consist of CMS used to control prices of courses, reviews etc. Main goal was new UI and new CMS that would let the owner control her website.",
+        tags: [
+            "React",
+            "TypeScript",
+            "ShadCn-UI",
+            "PHP",
+            "TailwindCSS",
+            "MySQL",
+        ],
+        imageUrl: autoskola2,
+        projectUrl: "https://autoskolapoppkova.cz",
+    },
 ] as const;
 
 export const projectsDataCz = [
@@ -277,7 +312,7 @@ export const projectsDataCz = [
             "Vytvořil jsem tento začátečnický projekt jako svou dlouhodobou maturitní práci na střední škole pouze s základními znalostmi web developmentu, a to začalo moji vášeň pro tuto oblast.",
         tags: ["HTML", "CSS", "PHP", "MySQL", "UI/UX"],
         imageUrl: autoskola,
-        projectUrl: "https://www.autoskolapoppkova.cz",
+        projectUrl: "https://github.com/BojkoJ/fullstack-driving-school",
     },
     {
         title: "NoteIt",
@@ -385,6 +420,39 @@ export const projectsDataCz = [
         ],
         imageUrl: effortly,
         projectUrl: "https://effortly.vercel.app",
+    },
+    {
+        title: "Nxsxnity",
+        description:
+            "Nxsxnity je fullstack e-commerce platforma s CMS jako jeden z mých freelance projektů. Klíčové funkce jsou CMS, správa produktů, variant a obsahu e-shopu, vlastní UI, stripe, zásilkovna a další.",
+        tags: [
+            "Next.js",
+            "TypeScript",
+            "React",
+            "ShadCn-UI",
+            "Server Actions",
+            "Zustand",
+            "TailwindCSS",
+            "PayloadCMS",
+            "PostgreSQL",
+        ],
+        imageUrl: nxsx,
+        projectUrl: "https://nxsx.store",
+    },
+    {
+        title: "Autoškola Poppková 2.0",
+        description:
+            "Toto je nová verze webových stránek, které byly mým prvním projektem. Skládá se z CMS, které se používá ke kontrole cen kurzů, recenzí atd. Hlavním cílem bylo nové UI a CMS, které by majitelce umožnilo ovládat obsah její webové stránky.",
+        tags: [
+            "React",
+            "TypeScript",
+            "ShadCn-UI",
+            "PHP",
+            "TailwindCSS",
+            "MySQL",
+        ],
+        imageUrl: autoskola2,
+        projectUrl: "https://autoskolapoppkova.cz",
     },
 ] as const;
 
