@@ -290,21 +290,6 @@ export const projectsData = [
         projectUrl: "https://nxsx.store",
     },
     {
-        title: "Poppková Driving school v2.0",
-        description:
-            "This is a new version of website that was my first project. It consist of CMS used to control prices of courses, reviews etc. Main goal was new UI and new CMS that would let the owner control her website.",
-        tags: [
-            "React",
-            "TypeScript",
-            "ShadCn-UI",
-            "PHP",
-            "TailwindCSS",
-            "MySQL",
-        ],
-        imageUrl: autoskola2,
-        projectUrl: "https://autoskolapoppkova.cz",
-    },
-    {
         title: "Bojko Drive",
         description:
             "Fullstack web application working as cloud storage written in Next.js & TypeScript. Main features include auth, files upload, folder creating/renaming, analytics with Posthog and more..",
@@ -320,6 +305,21 @@ export const projectsData = [
         ],
         imageUrl: drive,
         projectUrl: "https://bojko-drive.netlify.app",
+    },
+    {
+        title: "Poppková Driving school v2.0",
+        description:
+            "This is a new version of website that was my first project. It consist of CMS used to control prices of courses, reviews etc. Main goal was new UI and new CMS that would let the owner control her website.",
+        tags: [
+            "React",
+            "TypeScript",
+            "ShadCn-UI",
+            "PHP",
+            "TailwindCSS",
+            "MySQL",
+        ],
+        imageUrl: autoskola2,
+        projectUrl: "https://autoskolapoppkova.cz",
     },
 ] as const;
 
@@ -458,21 +458,6 @@ export const projectsDataCz = [
         projectUrl: "https://nxsx.store",
     },
     {
-        title: "Autoškola Poppková 2.0",
-        description:
-            "Toto je nová verze webových stránek, které byly mým prvním projektem. Skládá se z CMS, které se používá ke kontrole cen kurzů, recenzí atd. Hlavním cílem bylo nové UI a CMS, které by majitelce umožnilo ovládat obsah její webové stránky.",
-        tags: [
-            "React",
-            "TypeScript",
-            "ShadCn-UI",
-            "PHP",
-            "TailwindCSS",
-            "MySQL",
-        ],
-        imageUrl: autoskola2,
-        projectUrl: "https://autoskolapoppkova.cz",
-    },
-    {
         title: "Bojko Drive",
         description:
             "Fullstack webová aplikace fungující jako cloudové úložiště psaná v Next.js & TypeScriptu. Hlavní funkce zahrnují autentizaci, nahrávání souborů, vytváření/přejmenovávání složek, analytiku s Posthog a další..",
@@ -488,6 +473,21 @@ export const projectsDataCz = [
         ],
         imageUrl: drive,
         projectUrl: "https://bojko-drive.netlify.app",
+    },
+    {
+        title: "Autoškola Poppková 2.0",
+        description:
+            "Toto je nová verze webových stránek, které byly mým prvním projektem. Skládá se z CMS, které se používá ke kontrole cen kurzů, recenzí atd. Hlavním cílem bylo nové UI a CMS, které by majitelce umožnilo ovládat obsah její webové stránky.",
+        tags: [
+            "React",
+            "TypeScript",
+            "ShadCn-UI",
+            "PHP",
+            "TailwindCSS",
+            "MySQL",
+        ],
+        imageUrl: autoskola2,
+        projectUrl: "https://autoskolapoppkova.cz",
     },
 ] as const;
 
