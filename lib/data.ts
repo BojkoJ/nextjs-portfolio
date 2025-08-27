@@ -11,6 +11,7 @@ import digishark from "@/public/shark.png";
 import effortly from "@/public/effortly.png";
 import nxsx from "@/public/nxsx.png"
 import autoskola2 from "@/public/poppkova2.png";
+import drive from "@/public/drive.png";
 
 export const links = [
     {
@@ -303,6 +304,23 @@ export const projectsData = [
         imageUrl: autoskola2,
         projectUrl: "https://autoskolapoppkova.cz",
     },
+    {
+        title: "Bojko Drive",
+        description:
+            "Fullstack web application working as cloud storage written in Next.js & TypeScript. Main features include auth, files upload, folder creating/renaming, analytics with Posthog and more..",
+        tags: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Clerk Auth",
+            "Server Actions",
+            "ShadCn-UI",
+            "TailwindCSS",
+            "MySQL",
+        ],
+        imageUrl: drive,
+        projectUrl: "https://bojko-drive.netlify.app",
+    },
 ] as const;
 
 export const projectsDataCz = [
@@ -453,6 +471,23 @@ export const projectsDataCz = [
         ],
         imageUrl: autoskola2,
         projectUrl: "https://autoskolapoppkova.cz",
+    },
+    {
+        title: "Bojko Drive",
+        description:
+            "Fullstack webová aplikace fungující jako cloudové úložiště psaná v Next.js & TypeScriptu. Hlavní funkce zahrnují autentizaci, nahrávání souborů, vytváření/přejmenovávání složek, analytiku s Posthog a další..",
+        tags: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Clerk Auth",
+            "Server Actions",
+            "ShadCn-UI",
+            "TailwindCSS",
+            "MySQL",
+        ],
+        imageUrl: drive,
+        projectUrl: "https://bojko-drive.netlify.app",
     },
 ] as const;
 
