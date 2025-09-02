@@ -122,7 +122,7 @@ export const experiencesData = [
         description:
             "I started my 2-year master's degree in Computer Science (continuing from my bachelor's) to deepen my knowledge in software engineering and modern web technologies.",
         icon: React.createElement(LuGraduationCap),
-        date: "2025 - 2027",
+        date: "2025 - present",
     }
 ] as const;
 
@@ -169,7 +169,7 @@ export const experiencesDataCz = [
         description:
             "Započal jsem 2leté navazující magisterské studium oboru Informatika (pokračování na bakalářské) pro prohloubení znalostí v softwarovém inženýrství a moderních webových technologiích.",
         icon: React.createElement(LuGraduationCap),
-        date: "2025 - 2027",
+        date: "2025 - současnost",
     },
 ] as const;
 
