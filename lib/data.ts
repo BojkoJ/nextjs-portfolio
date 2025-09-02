@@ -99,10 +99,10 @@ export const experiencesData = [
         date: "2022",
     },
     {
-        title: "University Studies",
+        title: "Bachelor's Degree",
         location: "Ostrava, CZ",
         company: "VŠB-TUO",
-        description: "I have completed 3 years of studies in Computer Science at VŠB-TUO. I finished my bachelor's degree in 2025.",
+        description: "Completed a 3-year Bachelor's degree in Computer Science at VŠB-TUO, solidifying foundations in algorithms, web development and software engineering. Graduated in 2025.",
         icon: React.createElement(LuGraduationCap),
         date: "2022 - 2025",
     },
@@ -115,6 +115,15 @@ export const experiencesData = [
         icon: React.createElement(CgWorkAlt),
         date: "2023 - present",
     },
+    {
+        title: "Master's University Studies",
+        location: "Ostrava, CZ",
+        company: "VŠB-TUO",
+        description:
+            "I started my 2-year master's degree in Computer Science (continuing from my bachelor's) to deepen my knowledge in software engineering and modern web technologies.",
+        icon: React.createElement(LuGraduationCap),
+        date: "2025 - 2027",
+    }
 ] as const;
 
 export const experiencesDataCz = [
@@ -137,10 +146,10 @@ export const experiencesDataCz = [
         date: "2022",
     },
     {
-        title: "Vysokoškolská Studia",
+        title: "Bakalářské studium",
         location: "Ostrava, CZ",
         company: "VŠB-TUO",
-        description: "Absolvoval jsem 3 roky studia oboru Informatika na VŠB-TUO. Dokončil jsem bakalářské studium v roce 2025.",
+        description: "Dokončil jsem 3leté bakalářské studium oboru Informatika na VŠB-TUO, kde jsem si prohloubil základy algoritmů, webového vývoje a softwarového inženýrství. Absolvoval jsem v roce 2025.",
         icon: React.createElement(LuGraduationCap),
         date: "2022 - 2025",
     },
@@ -152,6 +161,15 @@ export const experiencesDataCz = [
             "Momentálně jsem zaměstnaný jako Junior Software Developer. Zde pracuji převážně s Go, Pythonem, JavaScriptem, Reactem a dělám UI/UX design.",
         icon: React.createElement(CgWorkAlt),
         date: "2023 - současnost",
+    },
+    {
+        title: "Navazující magisterské studium",
+        location: "Ostrava, CZ",
+        company: "VŠB-TUO",
+        description:
+            "Započal jsem 2leté navazující magisterské studium oboru Informatika (pokračování na bakalářské) pro prohloubení znalostí v softwarovém inženýrství a moderních webových technologiích.",
+        icon: React.createElement(LuGraduationCap),
+        date: "2025 - 2027",
     },
 ] as const;
 
