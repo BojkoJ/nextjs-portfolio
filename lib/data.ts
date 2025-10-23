@@ -9,7 +9,7 @@ import simulator from "@/public/simulator.png";
 import martazahrada from "@/public/martazahrada.png";
 import digishark from "@/public/shark.png";
 import effortly from "@/public/effortly.png";
-import nxsx from "@/public/nxsx.png"
+import nxsx from "@/public/nxsx.png";
 import autoskola2 from "@/public/poppkova2.png";
 import drive from "@/public/drive.png";
 
@@ -28,6 +28,11 @@ export const links = [
         name: "Projects",
         desc: "Projects",
         hash: "#projects",
+    },
+    {
+        name: "Testimonials",
+        desc: "Testimonials",
+        hash: "#testimonials",
     },
     {
         name: "Skills",
@@ -61,6 +66,11 @@ export const linksCz = [
         name: "Projects",
         desc: "Projekty",
         hash: "#projects",
+    },
+    {
+        name: "Testimonials",
+        desc: "Ohlasy",
+        hash: "#testimonials",
     },
     {
         name: "Skills",
@@ -102,7 +112,8 @@ export const experiencesData = [
         title: "Bachelor's Degree",
         location: "Ostrava, CZ",
         company: "VŠB-TUO",
-        description: "Completed a 3-year Bachelor's degree in Computer Science at VŠB-TUO, solidifying foundations in algorithms, web development and software engineering. Graduated in 2025.",
+        description:
+            "Completed a 3-year Bachelor's degree in Computer Science at VŠB-TUO, solidifying foundations in algorithms, web development and software engineering. Graduated in 2025.",
         icon: React.createElement(LuGraduationCap),
         date: "2022 - 2025",
     },
@@ -123,7 +134,7 @@ export const experiencesData = [
             "I started my 2-year master's degree in Computer Science (continuing from my bachelor's) to deepen my knowledge in software engineering and modern web technologies.",
         icon: React.createElement(LuGraduationCap),
         date: "2025 - present",
-    }
+    },
 ] as const;
 
 export const experiencesDataCz = [
@@ -149,7 +160,8 @@ export const experiencesDataCz = [
         title: "Bakalářské studium",
         location: "Ostrava, CZ",
         company: "VŠB-TUO",
-        description: "Dokončil jsem 3leté bakalářské studium oboru Informatika na VŠB-TUO, kde jsem si prohloubil základy algoritmů, webového vývoje a softwarového inženýrství. Absolvoval jsem v roce 2025.",
+        description:
+            "Dokončil jsem 3leté bakalářské studium oboru Informatika na VŠB-TUO, kde jsem si prohloubil základy algoritmů, webového vývoje a softwarového inženýrství. Absolvoval jsem v roce 2025.",
         icon: React.createElement(LuGraduationCap),
         date: "2022 - 2025",
     },
@@ -534,4 +546,24 @@ export const skillsData = [
     "MySQL",
     "C#/.Net",
     "Python",
+] as const;
+
+export const testimonialsData = [
+    {
+        feedback:
+            "There were absolutely no problems with the collaboration, communication was always quick, clear, and always adapted to my requirements in terms of time. I am extremely satisfied with the final result and, above all, with the price. The e-shop was created quickly and exactly according to my ideas and requirements. I can only recommend his services to everyone.",
+        clientName: "Miroslav Dvořák",
+        projectName: "Nxsxnity",
+        link: "https://nxsx.store",
+    },
+] as const;
+
+export const testimonialsDataCz = [
+    {
+        feedback:
+            "Se spolupráci nebyl absolutně žádný problém, komunikace byla vždy rychlá, jasná a časově vždy přizpůsobena mým požadavkům. Se závěrečným výsledkem a hlavně s cenou jsem nadmíru spokojen. Eshop byl vytvořen rychle a přesně podle mých představ a požadavků. Služby můžu všem jedině doporučit.",
+        clientName: "Miroslav Dvořák",
+        projectName: "Nxsxnity",
+        link: "https://nxsx.store",
+    },
 ] as const;

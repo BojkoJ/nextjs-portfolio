@@ -5,17 +5,19 @@ import Intro from "@/components/Intro";
 import Projects from "@/components/Projects";
 import SectionDivider from "@/components/SectionDivider";
 import Skills from "@/components/Skills";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
-  return (
-    <main className='flex flex-col px-4 items-center justify-center'>
-      <Intro />
-      <SectionDivider />
-      <About />
-      <Projects />
-      <Skills />
-      <Experience />
-      <Contact />
-    </main>
-  );
+    return (
+        <main className="flex flex-col px-4 items-center justify-center">
+            <Intro />
+            <SectionDivider />
+            <About />
+            <Projects />
+            <Testimonials />
+            <Skills />
+            <Experience />
+            <Contact />
+        </main>
+    );
 }
