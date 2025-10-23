@@ -561,7 +561,7 @@ export const testimonialsData = [
 export const testimonialsDataCz = [
     {
         feedback:
-            "Se spolupráci nebyl absolutně žádný problém, komunikace byla vždy rychlá, jasná a časově vždy přizpůsobena mým požadavkům. Se závěrečným výsledkem a hlavně s cenou jsem nadmíru spokojen. Eshop byl vytvořen rychle a přesně podle mých představ a požadavků. Služby můžu všem jedině doporučit.",
+            "Se spoluprací nebyl absolutně žádný problém, komunikace byla vždy rychlá, jasná a časově vždy přizpůsobena mým požadavkům. Se závěrečným výsledkem, a hlavně s cenou jsem nadmíru spokojen. Eshop byl vytvořen rychle a přesně podle mých představ a požadavků. Služby můžu všem jedině doporučit.",
         clientName: "Miroslav Dvořák",
         projectName: "Nxsxnity",
         link: "https://nxsx.store",
