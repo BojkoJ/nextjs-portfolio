@@ -556,6 +556,13 @@ export const testimonialsData = [
         projectName: "Nxsxnity",
         link: "https://nxsx.store",
     },
+    {
+        feedback:
+            "I am very satisfied with your work, especially the modern look that is up to date and regarding functionality everything is fine, fast and simple everyone finds what they need. Communication and feedback is the main satisfaction. Always with any questions, I know I can rely on you and I think the price is very favorable. I definitely recommend your work to other clients and I believe they will be as satisfied as I am.",
+        clientName: "Monika Poppková",
+        projectName: "Autoškola Poppková",
+        link: "https://autoskolapoppkova.cz",
+    },
 ] as const;
 
 export const testimonialsDataCz = [
@@ -565,5 +572,12 @@ export const testimonialsDataCz = [
         clientName: "Miroslav Dvořák",
         projectName: "Nxsxnity",
         link: "https://nxsx.store",
+    },
+    {
+        feedback:
+            "S Vaší prací jsem moc spokojená, hlavně s moderním vzhledem webu který jde s dobou a ohledně funkčnosti je vše v pořádku , rychle a jednoduše každý najde co potřebuje. Komunikace a zpětná vazba je hlavní spokojenost, vždy při nějakých dotazech, vím že se mohu na vás spolehnout a tím si myslím že i cena je hodně příznivá. Určitě doporučuji vaši práci ostatním klientům a věřím že budou spokojeni tak jak já.",
+        clientName: "Monika Poppková",
+        projectName: "Autoškola Poppková",
+        link: "https://autoskolapoppkova.cz",
     },
 ] as const;
