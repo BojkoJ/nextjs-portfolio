@@ -96,6 +96,10 @@ export type Copy = {
   role: string;
   project: string;
   footerLine: string;
+  footerArtwork: string;
+  footerModified: string;
+  footerIcons: string;
+  footerTrademark: string;
   btnLiveDemo: string;
   btnRepo: string;
   btnRepoLocked: string;
@@ -184,6 +188,11 @@ export const COPY: Record<Lang, Copy> = {
     project: "Project",
     footerLine:
       "© 2026 Jan Bojko. Built with React, Next.js, TypeScript, Tailwind & Framer Motion. Hosted on Vercel.",
+    footerArtwork: "Artwork",
+    footerModified: "modified",
+    footerIcons: "Icons",
+    footerTrademark:
+      "All product names, logos and brands are property of their respective owners and are used here for identification purposes only. Their use does not imply any affiliation with or endorsement by them.",
     btnLiveDemo: "Live Demo",
     btnRepo: "GitHub Repo",
     btnRepoLocked: "GitHub Repo",
@@ -269,6 +278,11 @@ export const COPY: Record<Lang, Copy> = {
     project: "Projekt",
     footerLine:
       "© 2026 Jan Bojko. Postaveno v React, Next.js, TypeScript, Tailwind & Framer Motion. Hostováno na Vercelu.",
+    footerArtwork: "Grafika",
+    footerModified: "upraveno",
+    footerIcons: "Ikony",
+    footerTrademark:
+      "Všechny názvy produktů, loga a značky jsou majetkem příslušných vlastníků a jsou zde použity pouze pro účely identifikace. Jejich použití neznamená žádné spojení s nimi ani jejich podporu.",
     btnLiveDemo: "Live Demo",
     btnRepo: "GitHub Repo",
     btnRepoLocked: "GitHub Repo",
