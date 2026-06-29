@@ -80,14 +80,12 @@ export default function GopherPeek() {
         animate={state}
         aria-hidden="true"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element -- static decorative SVG, no layout/LCP benefit from next/image */}
         <motion.img
           className="gopher-peek__face"
           src="/gopher/peek.svg"
           alt=""
           variants={calmFace}
         />
-        {/* eslint-disable-next-line @next/next/no-img-element -- static decorative SVG, no layout/LCP benefit from next/image */}
         <motion.img
           className="gopher-peek__face"
           src="/gopher/startled.svg"

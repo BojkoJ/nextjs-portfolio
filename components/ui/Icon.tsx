@@ -14,7 +14,13 @@ export type IconName =
   | "globe"
   | "code"
   | "chevron-right"
-  | "lock";
+  | "lock"
+  | "database"
+  | "schema"
+  | "network"
+  | "monitor"
+  | "expand"
+  | "x";
 
 export function Icon({
   name,
@@ -133,6 +139,54 @@ export function Icon({
         <svg {...common}>
           <rect width="18" height="11" x="3" y="11" rx="2" />
           <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+      );
+    case "database":
+      return (
+        <svg {...common}>
+          <ellipse cx="12" cy="5" rx="9" ry="3" />
+          <path d="M3 5v14a9 3 0 0 0 18 0V5" />
+          <path d="M3 12a9 3 0 0 0 18 0" />
+        </svg>
+      );
+    case "schema":
+      return (
+        <svg {...common}>
+          <rect x="3" y="3.5" width="8" height="6" rx="1.2" />
+          <rect x="13" y="14.5" width="8" height="6" rx="1.2" />
+          <path d="M11 6.5h3a2 2 0 0 1 2 2v6" />
+        </svg>
+      );
+    case "network":
+      return (
+        <svg {...common}>
+          <rect x="9" y="2" width="6" height="6" rx="1" />
+          <rect x="2" y="16" width="6" height="6" rx="1" />
+          <rect x="16" y="16" width="6" height="6" rx="1" />
+          <path d="M12 8v4M12 12H5v4M12 12h7v4" />
+        </svg>
+      );
+    case "monitor":
+      return (
+        <svg {...common}>
+          <rect width="20" height="14" x="2" y="3" rx="2" />
+          <path d="M8 21h8M12 17v4" />
+        </svg>
+      );
+    case "expand":
+      return (
+        <svg {...common}>
+          <path d="M15 3h6v6" />
+          <path d="M9 21H3v-6" />
+          <path d="M21 3l-7 7" />
+          <path d="M3 21l7-7" />
+        </svg>
+      );
+    case "x":
+      return (
+        <svg {...common}>
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
         </svg>
       );
     default:

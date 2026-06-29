@@ -27,26 +27,7 @@ body {
   text-rendering: optimizeLegibility;
   position: relative;
 }
-/* Subtle Apple-like ambient gradients in the background */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background:
-    radial-gradient(
-      ellipse 70% 50% at 15% 0%,
-      color-mix(in oklch, var(--accent) 6%, transparent) 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse 60% 40% at 90% 30%,
-      color-mix(in oklch, var(--accent) 4%, transparent) 0%,
-      transparent 55%
-    );
-  opacity: 0.65;
-}
+
 :root[data-theme="light"] body::before {
   opacity: 0.5;
 }
@@ -459,7 +440,7 @@ a {
   display: inline-flex;
   align-items: stretch;
   gap: 0;
-  background: color-mix(in oklch, var(--bg-elev) 75%, transparent);
+  background: color-mix(in oklch, var(--bg-elev) 96%, transparent);
   border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
   border-radius: 100px;
   padding: 5px;
@@ -863,6 +844,14 @@ a {
 /* ============================================================
    Projects (magazine layout)
    ============================================================ */
+/* Rows enter from off-canvas (slideIn); clip the x-axis at the section edge so
+   that start position never spawns a page-wide horizontal scrollbar on narrow
+   screens. Clip is x-only, so the cards' vertical hover glow stays visible, and
+   the fixed certificate lightbox (no transformed ancestor) is unaffected. */
+#projects,
+#certificates {
+  overflow-x: clip;
+}
 .projects-stack {
   display: flex;
   flex-direction: column;
@@ -926,7 +915,7 @@ a {
   }
 }
 
-/* image — no rotation hover; subtle lift + accent shadow only */
+/* image — hover lights up an accent glow behind the frame; no lift, no zoom */
 .proj__image-wrap {
   position: relative;
 }
@@ -938,24 +927,18 @@ a {
   background: var(--bg-elev);
   transition:
     border-color 0.4s var(--ease-soft),
-    box-shadow 0.5s var(--ease-soft),
-    transform 0.5s var(--ease-soft);
+    box-shadow 0.5s var(--ease-soft);
 }
 .proj__image-frame img {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.6s var(--ease);
 }
 .proj:hover .proj__image-frame {
   border-color: var(--border-strong);
-  transform: translateY(-4px);
   box-shadow:
     0 24px 60px -32px color-mix(in oklch, var(--accent) 40%, transparent),
     0 8px 22px -10px rgba(0, 0, 0, 0.32);
-}
-.proj:hover .proj__image-frame img {
-  transform: scale(1.025);
 }
 
 .proj--landscape .proj__image-frame {
@@ -1517,6 +1500,293 @@ a {
 .testimonial__project svg {
   width: 12px;
   height: 12px;
+}
+
+/* ============================================================
+   Certificates — a record of credentials, each a framed document
+   ============================================================ */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.cert-row {
+  display: grid;
+  grid-template-columns: minmax(0, 384px) 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.cert-row:nth-child(even) {
+  grid-template-columns: 1fr minmax(0, 384px);
+}
+.cert-row:nth-child(even) .cert-frame {
+  order: 2;
+}
+
+/* The framed, clickable preview — a document mounted on a matte board. */
+.cert-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    border-color 0.4s var(--ease-soft),
+    box-shadow 0.45s var(--ease-soft);
+}
+.cert-frame__shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--r-lg) - 7px);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.cert-frame:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 18px 38px -24px rgba(0, 0, 0, 0.4);
+}
+.cert-frame:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.cert-frame__veil {
+  position: absolute;
+  inset: 10px;
+  border-radius: calc(var(--r-lg) - 7px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in oklch, var(--bg) 42%, transparent);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-soft);
+}
+.cert-frame:hover .cert-frame__veil,
+.cert-frame:focus-visible .cert-frame__veil {
+  opacity: 1;
+}
+.cert-frame__cue {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-strong);
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.5);
+  transform: scale(0.82);
+  transition: transform 0.4s var(--spring);
+}
+.cert-frame:hover .cert-frame__cue,
+.cert-frame:focus-visible .cert-frame__cue {
+  transform: scale(1);
+}
+
+/* Meta column */
+.cert-row__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+.cert-row__date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cert-row__date::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: var(--accent-line);
+}
+.cert-row__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(20px, 2.1vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.16;
+  color: var(--fg-strong);
+}
+.cert-row__issuer {
+  display: flex;
+  align-items: center;
+}
+/* All issuer logos share one footprint so none dominates, regardless of the
+   brand's own aspect ratio (Oracle is a long wordmark, Cisco a compact mark). */
+.cert-logo {
+  display: block;
+  width: 68px;
+  height: 20px;
+  object-fit: contain;
+  object-position: left center;
+}
+/* Skills reuse the project stack styling (.tech-list / .tech-item). */
+.cert-row__skills {
+  margin-top: 2px;
+}
+.cert-row__view {
+  margin-top: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.01em;
+  color: var(--fg-strong);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.25s var(--ease-soft);
+}
+.cert-row__view svg {
+  color: var(--accent);
+  transition: transform 0.3s var(--ease);
+}
+.cert-row__view:hover {
+  color: var(--accent);
+}
+.cert-row__view:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Lightbox */
+.cert-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(14px, 4vw, 48px);
+  background: color-mix(in oklch, var(--bg) 40%, transparent);
+  backdrop-filter: blur(12px) saturate(115%);
+  -webkit-backdrop-filter: blur(12px) saturate(115%);
+}
+.cert-lb__panel {
+  width: min(980px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-xl);
+  box-shadow: 0 44px 110px -44px rgba(0, 0, 0, 0.75);
+}
+.cert-lb__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.cert-lb__date {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cert-lb__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(18px, 2.3vw, 24px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--fg-strong);
+}
+.cert-lb__close {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-2);
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition:
+    color 0.25s var(--ease-soft),
+    border-color 0.25s var(--ease-soft),
+    background 0.25s var(--ease-soft);
+}
+.cert-lb__close:hover {
+  color: var(--fg-strong);
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+}
+.cert-lb__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.41 / 1;
+  max-height: 64vh;
+  background: var(--bg-elev-2);
+  overflow: hidden;
+}
+.cert-lb__shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cert-lb__pdf {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  transition: opacity 0.45s var(--ease-soft);
+}
+.cert-lb__foot {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--border);
+}
+.cert-lb__issuer {
+  display: flex;
+  align-items: center;
+}
+.cert-lb__actions {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+@media (max-width: 900px) {
+  .cert-row,
+  .cert-row:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .cert-row:nth-child(even) .cert-frame {
+    order: 0;
+  }
+  .cert-lb__actions {
+    margin-left: 0;
+  }
 }
 
 /* ============================================================

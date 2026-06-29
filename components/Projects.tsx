@@ -2,13 +2,29 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/language-context";
-import { COPY, PROJECTS, type Copy, type Project } from "@/lib/data";
+import {
+  COPY,
+  PROJECTS,
+  type Copy,
+  type Project,
+  type ProjectLayout,
+} from "@/lib/data";
 import { techHref } from "@/lib/icons";
 import { SectionHead } from "./ui/SectionHead";
 import { Icon } from "./ui/Icon";
 import { TechIcon } from "./ui/TechIcon";
 import { RichText } from "./ui/RichText";
-import { reveal } from "@/lib/motion";
+import { slideIn } from "@/lib/motion";
+
+// Which side the screenshot sits on per layout — the card glides in from that
+// side. The featured architecture card spans full width, so it just fades up.
+const IMAGE_SIDE: Record<ProjectLayout, "left" | "right" | "none"> = {
+  "featured-arch": "none",
+  landscape: "left",
+  "landscape-reverse": "right",
+  wide: "left",
+  "wide-reverse": "left",
+};
 
 // Tech list — inline logo + name row, borderless.
 function ProjTech({ tags }: { tags: string[] }) {
@@ -239,7 +255,7 @@ function ProjectCard({ p, copy }: { p: Project; copy: Copy }) {
           : "proj proj--wide";
 
   return (
-    <motion.article className={cls} {...reveal()}>
+    <motion.article className={cls} {...slideIn(IMAGE_SIDE[p.layout])}>
       <div className="proj__head">
         <h3 className="proj__title">{p.title}</h3>
       </div>

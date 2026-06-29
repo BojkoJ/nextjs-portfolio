@@ -16,6 +16,7 @@ export const LINKS: Record<Lang, NavLink[]> = {
     { name: "Experience", hash: "#experience", desc: "Experience" },
     { name: "Skills", hash: "#skills", desc: "Stack" },
     { name: "Testimonials", hash: "#testimonials", desc: "Clients" },
+    { name: "Certificates", hash: "#certificates", desc: "Certs" },
     { name: "Contact", hash: "#contact", desc: "Contact" },
   ],
   czech: [
@@ -25,6 +26,7 @@ export const LINKS: Record<Lang, NavLink[]> = {
     { name: "Experience", hash: "#experience", desc: "Zkušenosti" },
     { name: "Skills", hash: "#skills", desc: "Stack" },
     { name: "Testimonials", hash: "#testimonials", desc: "Klienti" },
+    { name: "Certificates", hash: "#certificates", desc: "Certifikáty" },
     { name: "Contact", hash: "#contact", desc: "Kontakt" },
   ],
 };
@@ -36,6 +38,7 @@ export const SECTION_IDS = [
   "experience",
   "skills",
   "testimonials",
+  "certificates",
   "contact",
 ] as const;
 export type SectionId = (typeof SECTION_IDS)[number];
@@ -72,6 +75,12 @@ export type Copy = {
   skillsAside: string;
   testimonialsTitle: string;
   testimonialsAside: string;
+  certsTitle: string;
+  certsAside: string;
+  certView: string;
+  certIssued: string;
+  certOpen: string;
+  certDownload: string;
   contactTitle: string;
   contactLede: string;
   contactLedeAccent: string;
@@ -153,6 +162,12 @@ export const COPY: Record<Lang, Copy> = {
     skillsAside: "tools I reach for",
     testimonialsTitle: "Clients",
     testimonialsAside: "freelance",
+    certsTitle: "Certificates",
+    certsAside: "Oracle · Cisco · ECDL",
+    certView: "View certificate",
+    certIssued: "Issued by",
+    certOpen: "Open PDF",
+    certDownload: "Download",
     contactTitle: "Contact",
     contactLede: "Right now I'm open to",
     contactLedeAccent: "freelance work.",
@@ -233,6 +248,12 @@ export const COPY: Record<Lang, Copy> = {
     skillsAside: "nástroje, ke kterým sahám",
     testimonialsTitle: "Klienti",
     testimonialsAside: "freelance",
+    certsTitle: "Certifikáty",
+    certsAside: "Oracle · Cisco · ECDL",
+    certView: "Zobrazit certifikát",
+    certIssued: "Vydal",
+    certOpen: "Otevřít PDF",
+    certDownload: "Stáhnout",
     contactTitle: "Kontakt",
     contactLede: "Aktuálně jsem otevřený",
     contactLedeAccent: "freelance spolupráci.",
@@ -406,6 +427,7 @@ const PROJECTS_EN: Project[] = [
     description:
       "Greenfield rewrite of the legacy Perl-based LXI simulation tool into modern **Go (Gin) + vanilla JS**. New IA, redesigned UI in Figma, cleaner code structure, faster iteration cycle. Used internally by engineering for product development.",
     bullets: [
+      "Project under a contract for work at Pickering Interfaces",
       "Migrated Perl to Go · ground-up rewrite",
       "Redesigned UI/UX in Figma",
     ],
@@ -473,7 +495,7 @@ const PROJECTS_EN: Project[] = [
     ],
     image: "/effortly.png",
     demoUrl: "https://effortly.vercel.app",
-    repoUrl: "https://github.com/BojkoJ",
+    repoUrl: "https://github.com/BojkoJ/nextjs-effortly",
   },
   {
     slug: "noteit",
@@ -625,6 +647,7 @@ const PROJECTS_CZ_OVERRIDES: Partial<Project>[] = [
     description:
       "Greenfield přepsání staršího LXI simulátoru z Perlu do moderního **Go (Gin) + vanilla JS**. Nová informační architektura, redesignované UI ve Figmě, čistší code structure, rychlejší iterace. Používáno interně inženýrským týmem.",
     bullets: [
+      "Projekt v rámci DPČ ve firmě Pickering Interfaces",
       "Migrace Perl do Go · od základu",
       "Redesignované UI/UX ve Figmě",
     ],
@@ -722,7 +745,7 @@ export const EXPERIENCE: Record<Lang, ExperienceItem[]> = {
       role: "Junior Software Developer",
       org: "PICKERING Interfaces · Bystřice, CZ",
       kind: "work",
-      desc: "Full-stack development across Go, Python, JavaScript, TypeScript, SolidJS etc. Internal tooling, customer-facing UIs, UI/UX work in Figma, also frequent work with Git and Linux. Fully rewrote and redesigned the legacy LXI simulator from Perl to Go. Refactored whole, complex HTML5 SFP project from Ractive and vanilla JavaScript to asynchronous TypeScript and SolidJS, GitLab CI/CD.",
+      desc: "Full-stack development across Go, Python, JavaScript, TypeScript and frameworks such as Gin(Go), Django(Python), or SolidJS(TypeScript). Internal tooling, customer-facing UIs, UI/UX work in Figma, also frequent work with Git and Linux. Fully rewrote and redesigned the legacy LXI simulator from Perl to Go. Refactored whole, complex HTML5 SFP project from Ractive and vanilla JavaScript to asynchronous TypeScript and SolidJS, GitLab CI/CD.",
       current: true,
     },
     {
@@ -761,7 +784,7 @@ export const EXPERIENCE: Record<Lang, ExperienceItem[]> = {
       role: "Junior Software Developer",
       org: "PICKERING Interfaces · Bystřice",
       kind: "work",
-      desc: "Full-stack vývoj v jazycích Go, Python, JavaScript, TypeScript, SolidJS atd. Vývoj interních nástrojů, uživatelských rozhraní pro zákazníky, práce na UI/UX v nástroji Figma, dále práce s Gitem a Linuxem.. Kompletní přepracování a redesign staršího Software LXI Simulatoru z jazyka Perl do jazyka Go. Refaktorizace celého komplexního projektu HTML5 SFP z Ractive a vanilla JavaScriptu na asynchronní TypeScript a SolidJS, GitLab CI/CD.",
+      desc: "Full-stack vývoj v jazycích Go, Python, JavaScript, TypeScript, či frameworcích jako Gin(Go), Django(Python), či SolidJS(TypeScript). Vývoj interních nástrojů, uživatelských rozhraní pro zákazníky, práce na UI/UX v nástroji Figma, dále častá práce s Gitem a Linuxem. Kompletní přepracování a redesign staršího Software LXI Simulatoru z jazyka Perl do jazyka Go. Refaktorizace celého komplexního projektu HTML5 SFP z Ractive a vanilla JavaScriptu na asynchronní TypeScript a SolidJS, GitLab CI/CD.",
       current: true,
     },
     {
@@ -800,8 +823,8 @@ const SKILLS_EN: SkillCategory[] = [
       "TypeScript",
       "JavaScript",
       "Go",
-      "Python",
       "C#/.Net",
+      "Python",
       "HTML",
       "CSS",
     ],
@@ -811,6 +834,7 @@ const SKILLS_EN: SkillCategory[] = [
     items: [
       "React",
       "Next.js",
+      "SolidJS",
       "TailwindCSS",
       "ShadCn-UI",
       "Motion",
@@ -923,6 +947,112 @@ export const TESTIMONIALS: Record<Lang, Testimonial[]> = {
 };
 
 // --------------------------------------------------------------------
+// Certificates
+// --------------------------------------------------------------------
+export type CertCompany = "oracle" | "cisco" | "ecdl";
+export type CertSkillIcon =
+  "sql" | "database-design" | "networking" | "dotnet" | "it";
+
+export type CertSkill = { label: string; icon: CertSkillIcon };
+
+export type Certificate = {
+  slug: string;
+  title: string; // certificate names are proper nouns — kept as issued
+  company: string;
+  companyIcon: CertCompany;
+  date: string;
+  file: string; // path to the PDF
+  preview: string; // path to the rendered preview image
+  skills: CertSkill[];
+};
+
+type CertBase = Omit<Certificate, "date" | "skills"> & {
+  date: Record<Lang, string>;
+  skills: { icon: CertSkillIcon; english: string; czech: string }[];
+};
+
+const CERT_BASE: CertBase[] = [
+  {
+    slug: "oracle-sql-programming",
+    title: "Database Programming with SQL",
+    company: "Oracle",
+    companyIcon: "oracle",
+    date: { english: "May 2024", czech: "květen 2024" },
+    file: "/certs/clmsCertificate2.pdf",
+    preview: "/certs/previews/clmsCertificate2.jpg",
+    skills: [{ icon: "sql", english: "SQL", czech: "SQL" }],
+  },
+  {
+    slug: "oracle-database-design",
+    title: "Database Design",
+    company: "Oracle",
+    companyIcon: "oracle",
+    date: { english: "April 2024", czech: "duben 2024" },
+    file: "/certs/clmsCertificate.pdf",
+    preview: "/certs/previews/clmsCertificate.jpg",
+    skills: [
+      { icon: "sql", english: "SQL", czech: "SQL" },
+      {
+        icon: "database-design",
+        english: "Database Design",
+        czech: "Návrh databází",
+      },
+    ],
+  },
+  {
+    slug: "cisco-ccna-intro",
+    title: "CCNA Routing and Switching: Introduction to Networks",
+    company: "Cisco",
+    companyIcon: "cisco",
+    date: { english: "September 2021", czech: "září 2021" },
+    file: "/certs/ccnaCertificate.pdf",
+    preview: "/certs/previews/ccnaCertificate.jpg",
+    skills: [
+      { icon: "networking", english: "Networking", czech: "Počítačové sítě" },
+    ],
+  },
+  {
+    slug: "ecdl",
+    title: "ECDL European Computer Driving Licence",
+    company: "ECDL Czech Republic",
+    companyIcon: "ecdl",
+    date: { english: "March 2020", czech: "březen 2020" },
+    file: "/certs/ecdlCertificate.pdf",
+    preview: "/certs/previews/ecdlCertificate.jpg",
+    skills: [
+      { icon: "sql", english: "SQL", czech: "SQL" },
+      { icon: "dotnet", english: "C# / .NET", czech: "C# / .NET" },
+    ],
+  },
+  {
+    slug: "cisco-it-essentials",
+    title: "IT Essentials",
+    company: "Cisco",
+    companyIcon: "cisco",
+    date: { english: "November 2019", czech: "listopad 2019" },
+    file: "/certs/ITessentialsCertificate.pdf",
+    preview: "/certs/previews/ITessentialsCertificate.jpg",
+    skills: [
+      { icon: "networking", english: "Networking", czech: "Počítačové sítě" },
+      { icon: "it", english: "IT fundamentals", czech: "Základy IT" },
+    ],
+  },
+];
+
+export const CERTIFICATES: Record<Lang, Certificate[]> = {
+  english: CERT_BASE.map((c) => ({
+    ...c,
+    date: c.date.english,
+    skills: c.skills.map((s) => ({ label: s.english, icon: s.icon })),
+  })),
+  czech: CERT_BASE.map((c) => ({
+    ...c,
+    date: c.date.czech,
+    skills: c.skills.map((s) => ({ label: s.czech, icon: s.icon })),
+  })),
+};
+
+// --------------------------------------------------------------------
 // Hero YAML spec card — syntax-highlighted lines (HTML strings)
 // --------------------------------------------------------------------
 export function buildYaml(lang: Lang): string[] {
@@ -941,7 +1071,7 @@ export function buildYaml(lang: Lang): string[] {
       `<span class="indent"></span><span class="dash">-</span> <span class="s">Observability (LGTM)</span>`,
       ``,
       `<span class="k">stack_hlavni</span><span class="p">:</span>`,
-      `<span class="indent"></span><span class="k">jazyky</span><span class="p">:</span> <span class="p">[</span><span class="s">Go</span><span class="p">,</span> <span class="s">TypeScript</span><span class="p">,</span> <span class="s">Python</span><span class="p">]</span>`,
+      `<span class="indent"></span><span class="k">jazyky</span><span class="p">:</span> <span class="p">[</span><span class="s">Go</span><span class="p">,</span> <span class="s">TypeScript</span><span class="p">,</span> <span class="s">C#</span><span class="p">,</span> <span class="s">Python</span><span class="p">]</span>`,
       `<span class="indent"></span><span class="k">infra</span><span class="p">:</span> <span class="p">[</span><span class="s">k3s</span><span class="p">,</span> <span class="s">k8s</span><span class="p">,</span> <span class="s">Terraform</span><span class="p">,</span> <span class="s">ArgoCD</span><span class="p">,</span> <span class="s">Tekton</span><span class="p">]</span>`,
       `<span class="indent"></span><span class="k">data</span><span class="p">:</span>  <span class="p">[</span><span class="s">Postgres</span><span class="p">,</span> <span class="s">NATS</span><span class="p">,</span> <span class="s">Redis</span><span class="p">]</span>`,
       ``,
@@ -965,8 +1095,8 @@ export function buildYaml(lang: Lang): string[] {
     `<span class="indent"></span><span class="dash">-</span> <span class="s">Observability (LGTM)</span>`,
     ``,
     `<span class="k">core_stack</span><span class="p">:</span>`,
-    `<span class="indent"></span><span class="k">langs</span><span class="p">:</span> <span class="p">[</span><span class="s">Go</span><span class="p">,</span> <span class="s">TypeScript</span><span class="p">,</span> <span class="s">Python</span><span class="p">]</span>`,
-    `<span class="indent"></span><span class="k">infra</span><span class="p">:</span> <span class="p">[</span><span class="s">k3s</span><span class="p">,</span> <span class="s">k3s</span><span class="p">,</span> <span class="s">Terraform</span><span class="p">,</span> <span class="s">ArgoCD</span><span class="p">,</span> <span class="s">Tekton</span><span class="p">]</span>`,
+    `<span class="indent"></span><span class="k">langs</span><span class="p">:</span> <span class="p">[</span><span class="s">Go</span><span class="p">,</span> <span class="s">TypeScript</span><span class="p">,</span> <span class="s">C#</span><span class="p">,</span> <span class="s">Python</span><span class="p">]</span>`,
+    `<span class="indent"></span><span class="k">infra</span><span class="p">:</span> <span class="p">[</span><span class="s">k3s</span><span class="p">,</span> <span class="s">k8s</span><span class="p">,</span> <span class="s">Terraform</span><span class="p">,</span> <span class="s">ArgoCD</span><span class="p">,</span> <span class="s">Tekton</span><span class="p">]</span>`,
     `<span class="indent"></span><span class="k">data</span><span class="p">:</span>  <span class="p">[</span><span class="s">Postgres</span><span class="p">,</span> <span class="s">NATS</span><span class="p">,</span> <span class="s">Redis</span><span class="p">]</span>`,
     ``,
     `<span class="k">currently</span><span class="p">:</span> <span class="s">"master's thesis: distributed asset"</span>`,
