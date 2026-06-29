@@ -28,11 +28,15 @@ export default function Footer() {
                 the icon source. */}
             <p className="footer__credits">
               {copy.footerArtwork}: Go Gopher —{" "}
+              <Cite href="https://go.dev/blog/gopher">Renée French</Cite> (
+              <Cite href="https://creativecommons.org/licenses/by/4.0/">
+                CC BY 4.0
+              </Cite>
+              ) · {copy.footerVector}:{" "}
               <Cite href="https://github.com/golang-samples/gopher-vector">
                 Takuya Ueda
               </Cite>{" "}
-              &amp;{" "}
-              <Cite href="https://go.dev/blog/gopher">Renée French</Cite> (
+              (
               <Cite href="https://creativecommons.org/licenses/by/3.0/">
                 CC BY 3.0
               </Cite>
@@ -41,7 +45,10 @@ export default function Footer() {
                 MariaLetta
               </Cite>{" "}
               (CC0) · {copy.footerIcons}:{" "}
-              <Cite href="https://svgl.app">svgl.app</Cite>
+              <Cite href="https://svgl.app">svgl.app</Cite> · {copy.footerTrain}{" "}
+              <Cite href="https://gemini.google/overview/image-generation/">
+                Google Gemini (Nano Banana Pro)
+              </Cite>
             </p>
 
             {/* Trademark notice covering the tech logos and certificate issuers

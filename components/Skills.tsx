@@ -18,6 +18,15 @@ export default function Skills() {
       <div className="shell">
         <SectionHead title={copy.skillsTitle} id="skills" />
         <div className="skills-grid">
+          {/* Decorative: the stack as a gopher steam train, riding the
+              separator line above the grid like a rail. */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- fixed decorative raster */}
+          <img
+            className="stack-train"
+            src="/gopher-train.png"
+            alt=""
+            aria-hidden="true"
+          />
           {cats.map((c, i) => (
             <motion.div key={i} {...reveal(i * 0.05)}>
               <div className="skills-cat__head">
