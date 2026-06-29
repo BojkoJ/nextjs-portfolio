@@ -152,7 +152,6 @@ export const COPY: Record<Lang, Copy> = {
     aboutCopy: [
       "Four years in, I've shipped a dozen production systems across e-commerce, internal tooling and dashboards. I started as a full-stack developer in **TypeScript, React, Next.js**; today I'm steering toward **cloud-native full-stack** development: distributed Go services, Kubernetes, GitOps and observability.",
       "What I enjoy about software engineering is problem-solving, or those moments when an architectural decision pays off months later. I value **clean architecture**, deliberately defined boundaries, and tools that make life easier for the next person working on the repository.",
-      "Outside of code I train Muay Thai, read philosophy (currently Nietzsche), and spend time with my girlfriend and dog.",
     ],
     projectsTitle: "Selected work",
     projectsAside: "11 shipped · 1 in progress",
@@ -238,7 +237,6 @@ export const COPY: Record<Lang, Copy> = {
     aboutCopy: [
       "Po čtyřech letech ve full-stack vývoji mám za sebou desítku produkčních systémů: e-commerce, interní nástroje, dashboardy. Začínal jsem v **TypeScriptu, Reactu a Next.js**; dnes mířím směrem ke **cloud-native full-stack** vývoji: distribuované Go služby, Kubernetes, GitOps a observabilita.",
       "Na softwarovém inženýrství mě baví řešení problému, či ty chvíle kdy se architektonické rozhodnutí vyplatí o měsíce později. Záleží mi na **čisté architektuře**, vědomě nakreslených hranicích a nástrojích, které usnadní práci dalšímu člověku v repozitáři.",
-      "Mimo kód trénuji Muay Thai, čtu filozofii (aktuálně Nietzscheho) a trávím čas s přítelkyní a psem.",
     ],
     projectsTitle: "Vybraná práce",
     projectsAside: "11 dokončených · 1 v procesu",
