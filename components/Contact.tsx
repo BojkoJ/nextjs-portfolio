@@ -1,98 +1,132 @@
 "use client";
 
-import React from "react";
-import SectionHeading from "./SectionHeading";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
-import { sendEmail } from "@/actions/sendEmail";
-import SubmitBtn from "./SubmitBtn";
-import { toast } from "sonner";
 import { useLanguage } from "@/context/language-context";
+import { COPY } from "@/lib/data";
+import { SectionHead } from "./ui/SectionHead";
+import { Icon } from "./ui/Icon";
+import { reveal } from "@/lib/motion";
+import { sendEmail } from "@/actions/sendEmail";
 
-const Contact = () => {
-  const { ref } = useSectionInView("Contact", 0.5);
+export default function Contact() {
   const { language } = useLanguage();
+  const copy = COPY[language];
+
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    setSending(true);
+    setError(null);
+    setSent(false);
+
+    const result = await sendEmail(formData);
+
+    setSending(false);
+    if (result?.error) {
+      setError(copy.formErrorMsg);
+      return;
+    }
+
+    setSent(true);
+    form.reset();
+    setTimeout(() => setSent(false), 4000);
+  };
 
   return (
-    // min říká- vyber menší z těchto dvou - takže obrazovky užší než 38rem tak tam bude form 100% široký
-    <motion.section
-      id='contact'
-      className='mb-20 sm:mb-28 w-[min(100%,38rem)]'
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1,
-      }}
-      ref={ref}
-      viewport={{
-        once: true,
-      }}
-    >
-      <SectionHeading>
-        {language === "english" ? <>Contact Me</> : <>Kontaktujte Mě</>}
-      </SectionHeading>
-      {language === "english" ? (
-        <p className='text-gray-700 text-center -mt-5 -mb-2 px-3 sm:px-0 dark:text-white/80'>
-          Please contact me directly at{" "}
-          <a className='underline' href='mailto:honzabojko@seznam.cz'>
-            honzabojko@seznam.cz
-          </a>{" "}
-          or through this form.
-        </p>
-      ) : (
-        <p className='text-gray-700 text-center -mt-5 -mb-2 px-3 sm:px-0 dark:text-white/80'>
-          Kontaktujte mě přímo na{" "}
-          <a className='underline' href='mailto:honzabojko@seznam.cz'>
-            honzabojko@seznam.cz
-          </a>{" "}
-          nebo přes tento formulář.
-        </p>
-      )}
+    <section id="contact" className="section">
+      <div className="shell">
+        <SectionHead title={copy.contactTitle} id="contact" />
 
-      <form
-        className='mt-10 flex flex-col dark:text-black'
-        action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
+        <motion.h3 className="contact-lede" {...reveal()}>
+          {copy.contactLede}{" "}
+          <span className="accent">{copy.contactLedeAccent}</span>
+        </motion.h3>
+        <motion.p className="contact-lede-sub" {...reveal(0.06)}>
+          {copy.contactLedeSub}
+        </motion.p>
+        <motion.p className="contact-direct" {...reveal(0.1)}>
+          {copy.contactDirect}{" "}
+          <a href="mailto:honzabojko@seznam.cz">honzabojko@seznam.cz</a>
+        </motion.p>
 
-          if (error) {
-            let errorToastMessage =
-              language === "english"
-                ? "Something went wrong, email could not be sent."
-                : "Něco se pokazilo, váš email nebyl odeslán.";
-            toast.error(errorToastMessage);
-            return;
-          }
+        <motion.div className="contact-grid" {...reveal(0.14)}>
+          <div className="contact-channels">
+            <a href="mailto:honzabojko@seznam.cz">
+              <span className="label">email</span>
+              <span className="val">honzabojko@seznam.cz</span>
+            </a>
+            <a
+              href="https://github.com/BojkoJ"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="label">github</span>
+              <span className="val">github.com/BojkoJ</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/jan-bojko/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="label">linkedin</span>
+              <span className="val">jan-bojko</span>
+            </a>
+            <a href="/CV.pdf" download>
+              <span className="label">résumé</span>
+              <span className="val">{copy.cvChannel}</span>
+            </a>
+          </div>
 
-          let successToastMessage =
-            language === "english"
-              ? "Your email was succesfully sent."
-              : "Váš email byl úspěšně odeslán.";
-          toast.success(successToastMessage);
-        }}
-      >
-        <input
-          name='senderEmail'
-          type='email'
-          required
-          maxLength={250}
-          className='h-14 rounded-lg border border-black/10 px-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none'
-          placeholder={language === "english" ? "Your email" : "Váš email"}
-        />
-        <textarea
-          name='message'
-          className='h-52 my-3 rounded-lg border border-black/10 p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none'
-          required
-          maxLength={5000}
-          placeholder={language === "english" ? "Your message" : "Vaše zpráva"}
-        />
-        <SubmitBtn />
-      </form>
-    </motion.section>
+          <form className="contact-form" onSubmit={onSubmit}>
+            <div className="field">
+              <label htmlFor="cf-email">
+                {copy.contactForm.emailLabel}
+                <span className="req">*</span>
+              </label>
+              <input
+                id="cf-email"
+                name="email"
+                type="email"
+                required
+                maxLength={250}
+                placeholder={copy.contactForm.emailPh}
+              />
+            </div>
+            <div className="field field--grow">
+              <label htmlFor="cf-msg">
+                {copy.contactForm.messageLabel}
+                <span className="req">*</span>
+              </label>
+              <textarea
+                id="cf-msg"
+                name="message"
+                required
+                maxLength={5000}
+                placeholder={copy.contactForm.messagePh}
+              />
+            </div>
+            <button
+              type="submit"
+              className="btn btn--primary form-submit"
+              disabled={sending}
+            >
+              {sending ? copy.formSending : copy.contactForm.submit}
+              <Icon name="send" size={14} />
+            </button>
+            {sent ? (
+              <div className="form-sent">✓ {copy.formSentMsg}</div>
+            ) : null}
+            {error ? <div className="form-error">{error}</div> : null}
+          </form>
+        </motion.div>
+      </div>
+    </section>
   );
-};
-
-export default Contact;
+}

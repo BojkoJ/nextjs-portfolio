@@ -1,37 +1,22 @@
 "use client";
 
 import { useLanguage } from "@/context/language-context";
+import { COPY } from "@/lib/data";
 
-const Footer = () => {
+export default function Footer() {
   const { language } = useLanguage();
+  const copy = COPY[language];
 
   return (
-    <footer className='text-center mb-10 px-4 text-gray-500'>
-      <small className='block mb-2 text-xs'>
-        &copy;{" "}
-        {language === "english" ? (
-          <>2030 Jan. All rights reserved.</>
-        ) : (
-          <>2030 Jan. Všechna práva vyhrazena.</>
-        )}
-      </small>
-      <p className='text-xs'>
-        {language === "english" ? (
-          <>
-            <span>About this website:</span> built with React & Next.js (App
-            Router & Server actions), TypeScript, Tailwindcss, Framer Motion,
-            React Email & Resend, Vercel hosting.
-          </>
-        ) : (
-          <>
-            <span>O této stránce:</span> vybudováno pomocí React & Next.js (App
-            Router & Server actions), TypeScript, Tailwindcss, Framer Motion,
-            React Email & Resend, Vercel hosting.
-          </>
-        )}
-      </p>
+    <footer className="footer">
+      <div className="shell">
+        <div className="footer__inner">
+          <div>{copy.footerLine}</div>
+          <div className="footer__stack">
+            <span>{copy.footerCity}</span>
+          </div>
+        </div>
+      </div>
     </footer>
   );
-};
-
-export default Footer;
+}

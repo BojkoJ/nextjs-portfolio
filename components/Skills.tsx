@@ -1,58 +1,59 @@
 "use client";
 
-import React from "react";
-import SectionHeading from "./SectionHeading";
-import { skillsData } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/language-context";
+import { COPY, SKILLS } from "@/lib/data";
+import { techHref } from "@/lib/icons";
+import { SectionHead } from "./ui/SectionHead";
+import { TechIcon } from "./ui/TechIcon";
+import { reveal } from "@/lib/motion";
 
-const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.05 * index,
-    },
-  }),
-};
-
-const Skills = () => {
-  const { ref } = useSectionInView("Skills", 0.5);
+export default function Skills() {
   const { language } = useLanguage();
+  const copy = COPY[language];
+  const cats = SKILLS[language];
 
   return (
-    <section
-      className='mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40'
-      ref={ref}
-      id='skills'
-    >
-      <SectionHeading>
-        {language === "english" ? <>My Skills</> : <>Moje Dovednosti</>}
-      </SectionHeading>
-      <ul className='flex flex-wrap justify-center gap-2 text-lg text-gray-800'>
-        {skillsData.map((skill, index) => (
-          <motion.li
-            className='bg-white border border-black/[0.1] px-3 sm:px-5 py-[0.4rem] sm:py-3 rounded-xl dark:bg-white/10 dark:text-white/80'
-            key={index}
-            variants={fadeInAnimationVariants}
-            initial='initial'
-            whileInView='animate'
-            viewport={{
-              once: true,
-            }}
-            custom={index}
-          >
-            {skill}
-          </motion.li>
-        ))}
-      </ul>
+    <section id="skills" className="section">
+      <div className="shell">
+        <SectionHead title={copy.skillsTitle} id="skills" />
+        <div className="skills-grid">
+          {cats.map((c, i) => (
+            <motion.div key={i} {...reveal(i * 0.05)}>
+              <div className="skills-cat__head">
+                <span>{c.cat}</span>
+                <span className="count">
+                  {String(c.items.length).padStart(2, "0")}
+                </span>
+              </div>
+              <ul className="skills-list">
+                {c.items.map((it) => {
+                  const href = techHref(it);
+                  return (
+                    <li key={it}>
+                      <span className="skill-ico">
+                        <TechIcon name={it} size={16} />
+                      </span>
+                      {href ? (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="skills-link"
+                        >
+                          {it}
+                        </a>
+                      ) : (
+                        <span>{it}</span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
-};
-
-export default Skills;
+}

@@ -1,70 +1,94 @@
 "use client";
 
-import React from "react";
-import SectionHeading from "./SectionHeading";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-import { experiencesData, experiencesDataCz } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
-import { useTheme } from "@/context/theme-context";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/context/language-context";
+import { COPY, EXPERIENCE } from "@/lib/data";
+import { SectionHead } from "./ui/SectionHead";
+import { reveal } from "@/lib/motion";
 
-const Experience = () => {
-  const { ref } = useSectionInView("Experience", 0.5);
-  const { theme } = useTheme();
+function ExpIcon({ kind }: { kind: "education" | "work" }) {
+  if (kind === "education") {
+    return (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M22 10v6" />
+        <path d="M2 10 12 4l10 6-10 6L2 10z" />
+        <path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5" />
+      </svg>
+    );
+  }
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+      <path d="M3 12h18" />
+    </svg>
+  );
+}
+
+export default function Experience() {
   const { language } = useLanguage();
-
-  let ExperienceData =
-    language === "english" ? experiencesData : experiencesDataCz;
+  const copy = COPY[language];
+  const items = EXPERIENCE[language];
 
   return (
-    <section id='experience' className='scroll-mt-28 mb-28 sm:mb-40' ref={ref}>
-      <SectionHeading>
-        {language === "english" ? <>My Experience</> : <>Moje Zkušenosti</>}
-      </SectionHeading>
-      <VerticalTimeline lineColor=''>
-        {ExperienceData.map((experienceItem, index) => (
-          <React.Fragment key={index}>
-            <VerticalTimelineElement
-              contentStyle={{
-                background:
-                  theme === "light" ? "#F3F4F6" : "rgba(255, 255, 255, 0.05)",
-                boxShadow: "none",
-                border: "1px solid rgba(0, 0, 0, 0.05)",
-                textAlign: "left",
-                padding: "1.3rem 2rem",
-              }}
-              contentArrowStyle={{
-                borderRight:
-                  theme === "light"
-                    ? "0.4rem solid #9CA3AF"
-                    : "0.4rem solid rgba(255, 255, 255, 0.5)",
-              }}
-              date={experienceItem.date}
-              iconStyle={{
-                background: theme === "light" ? "white" : "rgba(136, 140, 147)",
-                fontSize: "1.5rem",
-              }}
-              icon={experienceItem.icon}
-            >
-              <h3 className='font-semibold capitalize'>
-                {experienceItem.title}
-              </h3>
-              <p className='!font-normal !mt-0'>
-                {experienceItem.company} - {experienceItem.location}
-              </p>
-              <p className='!font-normal !mt-1 text-gray-700 dark:text-white/70'>
-                {experienceItem.description}
-              </p>
-            </VerticalTimelineElement>
-          </React.Fragment>
-        ))}
-      </VerticalTimeline>
+    <section id="experience" className="section">
+      <div className="shell">
+        <SectionHead title={copy.experienceTitle} id="experience" />
+        <div className="timeline">
+          {items.map((it, i) => {
+            const side = i % 2 === 0 ? "left" : "right";
+            const isWork = it.kind === "work";
+            return (
+              <motion.div
+                key={i}
+                className={
+                  "tl-row tl-row--" + side + (it.current ? " current" : "")
+                }
+                {...reveal()}
+              >
+                <div className="tl-card-cell">
+                  <div className="tl-card">
+                    <div className="tl-when">
+                      <span>{it.when}</span>
+                    </div>
+                    <h4 className="tl-role">{it.role}</h4>
+                    <div className="tl-org">{it.org}</div>
+                    <p className="tl-desc">{it.desc}</p>
+                  </div>
+                </div>
+                <div className="tl-axis">
+                  <div className="tl-bubble">
+                    <ExpIcon kind={it.kind} />
+                  </div>
+                </div>
+                <div className="tl-meta-cell">
+                  <span className="tl-tag">
+                    {isWork ? copy.expTagWork : copy.expTagEdu}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
-};
-
-export default Experience;
+}
