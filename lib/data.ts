@@ -853,6 +853,7 @@ const SKILLS_EN: SkillCategory[] = [
       "Zustand",
       "SWR",
       "Zod",
+      "Figma",
     ],
   },
   {
@@ -892,7 +893,6 @@ const SKILLS_EN: SkillCategory[] = [
       "Prisma",
       "Drizzle",
       "PayloadCMS",
-      "Figma",
     ],
   },
 ];
