@@ -64,6 +64,15 @@ export default function Experience() {
                 }
                 {...reveal()}
               >
+                {i === 0 && (
+                  // eslint-disable-next-line @next/next/no-img-element -- fixed decorative raster
+                  <img
+                    className="exp-gopher"
+                    src="/gopher-career.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                )}
                 <div className="tl-card-cell">
                   <div className="tl-card">
                     <div className="tl-when">

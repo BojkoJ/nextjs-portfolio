@@ -751,7 +751,7 @@ export type ExperienceItem = {
 export const EXPERIENCE: Record<Lang, ExperienceItem[]> = {
   english: [
     {
-      when: "2025-present",
+      when: "2025-present (2027 expected graduation)",
       role: "M.Sc. Computer Science",
       org: "VŠB-TUO · Ostrava, CZ",
       kind: "education",
@@ -790,7 +790,7 @@ export const EXPERIENCE: Record<Lang, ExperienceItem[]> = {
   ],
   czech: [
     {
-      when: "2025-nyní",
+      when: "2025-nyní (2027 očekávány státnice)",
       role: "Ing. Informatika",
       org: "VŠB-TUO · Ostrava",
       kind: "education",

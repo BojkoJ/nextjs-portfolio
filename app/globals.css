@@ -1112,6 +1112,7 @@ a {
 }
 
 .tl-row {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 60px 1fr;
   grid-auto-flow: dense;
@@ -1318,6 +1319,26 @@ a {
     height: 36px;
   }
   .tl-card::before {
+    display: none;
+  }
+}
+
+/* Career gophers (work + graduate) perched on the top timeline row — bottom
+   edge rests on the row's top edge, right-aligned. Same treatment as the stack
+   train: decorative, hidden on smaller screens. */
+.exp-gopher {
+  position: absolute;
+  bottom: 100%;
+  /* The top row's card sits on the LEFT, so the gophers perch above it (not on
+     the right meta side). Nudge `left` to slide them along the row. */
+  left: 26%;
+  width: clamp(190px, 17%, 190px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 1024px) {
+  .exp-gopher {
     display: none;
   }
 }
