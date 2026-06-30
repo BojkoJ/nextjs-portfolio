@@ -482,7 +482,7 @@ const PROJECTS_EN: Project[] = [
       "Zustand",
     ],
     image: "/shark.png",
-    demoUrl: null,
+    demoUrl: "https://digishark.xyz",
     repoUrl: "https://github.com/BojkoJ/nextjs-digishark",
     closedSource: false,
   },
