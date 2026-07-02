@@ -574,7 +574,12 @@ const PROJECTS_EN: Project[] = [
     kind: "shipped",
     layout: "wide-reverse",
     description:
-      "Full-stack cloud storage app: upload, organize, store or delete files. Auth via Clerk, server actions for mutations, **Posthog analytics**.",
+      "Full-stack cloud storage app: upload, organize, store or delete files. Auth via Clerk, server actions for mutations, **Posthog analytics**. Including file previews (videos, audio, codes and much more)",
+    bullets: [
+      "File and folder storage · beautiful UI",
+      "Free 80MB tier",
+      "Good UX features like file re-order etc.",
+    ],
     tags: [
       "Next.js",
       "TypeScript",
@@ -716,7 +721,12 @@ const PROJECTS_CZ_OVERRIDES: Partial<Project>[] = [
     type: "Osobní · cloud storage",
     kind: "vydáno",
     description:
-      "Full-stack cloud storage: nahrávání, organizace, ukládání, či mazání souborů. Auth přes Clerk, server actions pro mutace, **Posthog analytics**.",
+      "Full-stack cloud storage: nahrávání, organizace, ukládání, či mazání souborů. Auth přes Clerk, server actions pro mutace, **Posthog analytics**. Zobrazování spousty typů souborů v prohlížeči (videa, zvuky, kódy a mnoho dalších).",
+    bullets: [
+      "Úložiště souborů · krásné UI",
+      "80MB tier zdarma",
+      "Dobré UX praktiky jako změna pořadí položek atd.",
+    ],
   },
   {
     title: "Autoškola Poppková · v2",
