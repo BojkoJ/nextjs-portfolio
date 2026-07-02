@@ -587,7 +587,7 @@ const PROJECTS_EN: Project[] = [
     ],
     image: "/drive.png",
     demoUrl: "https://bojko-drive.netlify.app",
-    repoUrl: "https://github.com/BojkoJ",
+    repoUrl: "https://github.com/BojkoJ/nextjs-drive",
   },
   {
     slug: "poppkova2",
