@@ -194,7 +194,8 @@ export const COPY: Record<Lang, Copy> = {
     footerModified: "modified",
     footerVector: "Vector",
     footerIcons: "Icons",
-    footerTrain: "Stack train illustration — AI-generated with",
+    footerTrain:
+      "Stack train and gophers in experience section illustrations are AI-generated with",
     footerTrademark:
       "All product names, logos and brands are property of their respective owners and are used here for identification purposes only. Their use does not imply any affiliation with or endorsement by them.",
     btnLiveDemo: "Live Demo",
@@ -286,7 +287,8 @@ export const COPY: Record<Lang, Copy> = {
     footerModified: "upraveno",
     footerVector: "Vektor",
     footerIcons: "Ikony",
-    footerTrain: "Ilustrace vláčku — vytvořeno pomocí AI",
+    footerTrain:
+      "Ilustrace vláčku a gopherů v sekci zkušenosti jsou vytvořeny pomocí AI",
     footerTrademark:
       "Všechny názvy produktů, loga a značky jsou majetkem příslušných vlastníků a jsou zde použity pouze pro účely identifikace. Jejich použití neznamená žádné spojení s nimi ani jejich podporu.",
     btnLiveDemo: "Live Demo",

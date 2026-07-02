@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jan Bojko — cloud-native fullstack developer",
+  title: "Jan Bojko Portfolio",
   description:
     "Portfolio of Jan Bojko, cloud-native full-stack developer based in Ostrava, Czechia. Building distributed systems in Go, Kubernetes and Next.js.",
 };

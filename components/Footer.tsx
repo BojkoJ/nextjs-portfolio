@@ -27,7 +27,7 @@ export default function Footer() {
                 licence + "modified"), plus courtesy credits for the CC0 pack and
                 the icon source. */}
             <p className="footer__credits">
-              {copy.footerArtwork}: Go Gopher —{" "}
+              {copy.footerArtwork}: Go Gopher:{" "}
               <Cite href="https://go.dev/blog/gopher">Renée French</Cite> (
               <Cite href="https://creativecommons.org/licenses/by/4.0/">
                 CC BY 4.0
