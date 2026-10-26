@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useLanguage } from "@/context/language-context";
 import { COPY } from "@/lib/data";
+import { PRIVACY_PATH } from "@/lib/legal";
 
 // External attribution link — muted, underline-free, matches footer styling.
 function Cite({ href, children }: { href: string; children: React.ReactNode }) {
@@ -54,6 +56,10 @@ export default function Footer() {
             {/* Trademark notice covering the tech logos and certificate issuers
                 (Oracle, Cisco, ECDL) — nominative use, no endorsement implied. */}
             <p className="footer__trademark">{copy.footerTrademark}</p>
+
+            <p className="footer__credits">
+              <Link href={PRIVACY_PATH}>{copy.footerPrivacy}</Link>
+            </p>
           </div>
         </div>
       </div>

@@ -92,8 +92,11 @@ export type Copy = {
     messageLabel: string;
     messagePh: string;
     submit: string;
+    consentPre: string;
+    consentLink: string;
   };
   role: string;
+  footerPrivacy: string;
   project: string;
   footerLine: string;
   footerArtwork: string;
@@ -185,8 +188,11 @@ export const COPY: Record<Lang, Copy> = {
       messageLabel: "Message",
       messagePh: "What can I help with?",
       submit: "Send message",
+      consentPre: "I agree to the ",
+      consentLink: "processing of personal data",
     },
     role: "Client",
+    footerPrivacy: "Privacy policy",
     project: "Project",
     footerLine:
       "© 2026 Jan Bojko. Built with React, Next.js, TypeScript, Tailwind & Framer Motion. Hosted on Vercel.",
@@ -278,8 +284,11 @@ export const COPY: Record<Lang, Copy> = {
       messageLabel: "Zpráva",
       messagePh: "S čím můžu pomoct?",
       submit: "Odeslat zprávu",
+      consentPre: "Souhlasím se ",
+      consentLink: "zpracováním osobních údajů",
     },
     role: "Klient",
+    footerPrivacy: "Zásady ochrany osobních údajů",
     project: "Projekt",
     footerLine:
       "© 2026 Jan Bojko. Postaveno v React, Next.js, TypeScript, Tailwind & Framer Motion. Hostováno na Vercelu.",

@@ -14,9 +14,14 @@ import {
 type ContactFormEmailProps = {
   message: string;
   senderEmail: string;
+  consentAt: string;
 };
 
-const ContactFormEmail = ({ message, senderEmail }: ContactFormEmailProps) => {
+const ContactFormEmail = ({
+  message,
+  senderEmail,
+  consentAt,
+}: ContactFormEmailProps) => {
   return (
     <Html>
       <Head />
@@ -31,6 +36,9 @@ const ContactFormEmail = ({ message, senderEmail }: ContactFormEmailProps) => {
               <Text>{message}</Text>
               <Hr />
               <Text>Email přišel od {senderEmail}</Text>
+              <Text>
+                Souhlas se zpracováním osobních údajů udělen: {consentAt}
+              </Text>
             </Section>
           </Container>
         </Body>

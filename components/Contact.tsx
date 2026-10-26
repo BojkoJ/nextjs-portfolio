@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { PRIVACY_PATH } from "@/lib/legal";
 import { useLanguage } from "@/context/language-context";
 import { COPY } from "@/lib/data";
 import { SectionHead } from "./ui/SectionHead";
@@ -112,6 +114,21 @@ export default function Contact() {
                 placeholder={copy.contactForm.messagePh}
               />
             </div>
+            <label className="consent" htmlFor="cf-consent">
+              <input
+                id="cf-consent"
+                name="consent"
+                type="checkbox"
+                required
+              />
+              <span>
+                {copy.contactForm.consentPre}
+                <Link href={PRIVACY_PATH} target="_blank" rel="noreferrer">
+                  {copy.contactForm.consentLink}
+                </Link>
+                <span className="req">*</span>
+              </span>
+            </label>
             <button
               type="submit"
               className="btn btn--primary form-submit"

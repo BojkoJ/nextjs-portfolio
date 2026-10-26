@@ -11,6 +11,11 @@ export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get("email");
   const message = formData.get("message");
 
+  // Consent is the legal basis (Art. 6(1)(a) GDPR) — enforce it server-side too,
+  // the client-side `required` attribute is trivially bypassed.
+  if (formData.get("consent") !== "on") {
+    return { error: "Consent to personal data processing is required." };
+  }
   if (!validateString(senderEmail, 250)) {
     return { error: "Invalid sender email." };
   }
@@ -27,6 +32,7 @@ export const sendEmail = async (formData: FormData) => {
       react: React.createElement(ContactFormEmail, {
         message,
         senderEmail,
+        consentAt: new Date().toISOString(),
       }),
     });
 
