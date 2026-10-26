@@ -6,7 +6,7 @@ export const CONTROLLER = {
   email: "honzabojko@seznam.cz",
   city: "Písek u Jablunkova, Česká Republika",
   ico: undefined as string | undefined,
-  address: undefined as string | undefined,
+  address: "Písek 450, Písek u Jablunkova, 73984",
 };
 
 // How long contact-form messages are kept after the conversation ends.
