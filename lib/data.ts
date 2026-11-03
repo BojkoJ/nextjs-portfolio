@@ -97,6 +97,9 @@ export type Copy = {
   };
   role: string;
   footerPrivacy: string;
+  skipToContent: string;
+  closeLabel: string;
+  navLabel: string;
   project: string;
   footerLine: string;
   footerArtwork: string;
@@ -193,6 +196,9 @@ export const COPY: Record<Lang, Copy> = {
     },
     role: "Client",
     footerPrivacy: "Privacy policy",
+    skipToContent: "Skip to content",
+    closeLabel: "Close",
+    navLabel: "Primary",
     project: "Project",
     footerLine:
       "© 2026 Jan Bojko. Built with React, Next.js, TypeScript, Tailwind & Framer Motion. Hosted on Vercel.",
@@ -289,6 +295,9 @@ export const COPY: Record<Lang, Copy> = {
     },
     role: "Klient",
     footerPrivacy: "Zásady ochrany osobních údajů",
+    skipToContent: "Přeskočit na obsah",
+    closeLabel: "Zavřít",
+    navLabel: "Hlavní navigace",
     project: "Projekt",
     footerLine:
       "© 2026 Jan Bojko. Postaveno v React, Next.js, TypeScript, Tailwind & Framer Motion. Hostováno na Vercelu.",

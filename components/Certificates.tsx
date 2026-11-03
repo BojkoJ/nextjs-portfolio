@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/context/language-context";
 import {
@@ -136,10 +136,38 @@ function Lightbox({
   onClose: () => void;
 }) {
   const [pdfReady, setPdfReady] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  // Move focus into the dialog on open and hand it back to the opener on close
+  // (WCAG 2.4.3 Focus Order).
+  useEffect(() => {
+    const opener = document.activeElement as HTMLElement | null;
+    closeRef.current?.focus();
+    return () => opener?.focus();
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      // Keep Tab / Shift+Tab inside the modal.
+      if (e.key !== "Tab" || !dialogRef.current) return;
+      const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener("keydown", onKey);
     const prevOverflow = document.body.style.overflow;
@@ -152,6 +180,7 @@ function Lightbox({
 
   return (
     <motion.div
+      ref={dialogRef}
       className="cert-lb"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -176,10 +205,11 @@ function Lightbox({
             <h3 className="cert-lb__title">{cert.title}</h3>
           </div>
           <button
+            ref={closeRef}
             type="button"
             className="cert-lb__close"
             onClick={onClose}
-            aria-label="Close"
+            aria-label={copy.closeLabel}
           >
             <Icon name="x" size={18} stroke={1.9} />
           </button>
@@ -193,6 +223,7 @@ function Lightbox({
             className="cert-lb__pdf"
             src={`${cert.file}#toolbar=0&navpanes=0&statusbar=0&view=Fit`}
             title={cert.title}
+            tabIndex={-1} /* embedded PDF viewers trap Tab; "Open PDF" below is the keyboard route */
             onLoad={() => setPdfReady(true)}
             style={{ opacity: pdfReady ? 1 : 0 }}
           />

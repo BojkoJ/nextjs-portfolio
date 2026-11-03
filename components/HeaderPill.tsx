@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/language-context";
-import { LINKS, SECTION_IDS } from "@/lib/data";
+import { COPY, LINKS, SECTION_IDS } from "@/lib/data";
 import { useActiveSection } from "@/lib/hooks";
 import { smoothScrollTo } from "@/lib/scroll";
 
@@ -26,7 +26,7 @@ export default function HeaderPill() {
 
   return (
     <div className="header-pill-wrap">
-      <nav className="header-pill" aria-label="Primary">
+      <nav className="header-pill" aria-label={COPY[language].navLabel}>
         {links.map((l) => {
           const id = l.hash.slice(1).toLowerCase();
           const isActive = onHome && active === id;

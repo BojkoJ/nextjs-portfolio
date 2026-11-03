@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { iconSrc, inlineIconHtml } from "@/lib/icons";
 
-// Tech badge icon: inline SVG/PNG override → svgl.app remote → mono initials.
+// Tech badge icon: inline SVG/PNG override -> self-hosted /icons SVG → mono initials.
 export function TechIcon({ name, size = 16 }: { name: string; size?: number }) {
   const [errored, setErrored] = useState(false);
   const inline = useMemo(() => inlineIconHtml(name), [name]);
@@ -14,6 +14,7 @@ export function TechIcon({ name, size = 16 }: { name: string; size?: number }) {
     return (
       <span
         className="inline-svg"
+        aria-hidden="true"
         style={{
           width: size,
           height: size,
@@ -26,7 +27,7 @@ export function TechIcon({ name, size = 16 }: { name: string; size?: number }) {
     );
   }
 
-  // 2. svgl.app remote, 3. mono initials fallback
+  // 2. self-hosted file missing/failed, 3. mono initials fallback
   if (errored || !src) {
     const initials =
       name
@@ -35,7 +36,11 @@ export function TechIcon({ name, size = 16 }: { name: string; size?: number }) {
         .slice(0, 2)
         .toUpperCase() || "??";
     return (
-      <span className="mono-fallback" style={{ width: size, height: size }}>
+      <span
+        className="mono-fallback"
+        aria-hidden="true"
+        style={{ width: size, height: size }}
+      >
         {initials}
       </span>
     );
@@ -45,7 +50,7 @@ export function TechIcon({ name, size = 16 }: { name: string; size?: number }) {
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
-      alt={name}
+      alt="" /* decorative: every use sits next to the tech name as text */
       width={size}
       height={size}
       loading="lazy"

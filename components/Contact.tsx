@@ -138,9 +138,15 @@ export default function Contact() {
               <Icon name="send" size={14} />
             </button>
             {sent ? (
-              <div className="form-sent">✓ {copy.formSentMsg}</div>
+              <div className="form-sent" role="status">
+                ✓ {copy.formSentMsg}
+              </div>
             ) : null}
-            {error ? <div className="form-error">{error}</div> : null}
+            {error ? (
+              <div className="form-error" role="alert">
+                {error}
+              </div>
+            ) : null}
           </form>
         </motion.div>
       </div>

@@ -78,7 +78,7 @@ export default function Experience() {
                     <div className="tl-when">
                       <span>{it.when}</span>
                     </div>
-                    <h4 className="tl-role">{it.role}</h4>
+                    <h3 className="tl-role">{it.role}</h3>
                     <div className="tl-org">{it.org}</div>
                     <p className="tl-desc">{it.desc}</p>
                   </div>

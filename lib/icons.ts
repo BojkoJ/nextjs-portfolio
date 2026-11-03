@@ -1,11 +1,15 @@
 // Tech-stack icon registry. Ported from the Claude Design project.
 // 1. INLINE_ICONS (hand-authored SVG/PNG) take priority.
-// 2. Otherwise an svgl.app remote SVG URL is used.
+// 2. Otherwise a self-hosted SVG from /public/icons (originally from svgl.app) is
+//    used. Never hot-link third-party hosts: that would send every visitor's IP
+//    address to them without a legal basis (GDPR).
 // 3. TechIcon falls back to mono initials when both are missing.
 
-const ICON_BASE = "https://svgl.app/library/";
+const ICON_BASE = "/icons/";
 
-// Map of "tag name as used in projects/skills" -> svgl slug
+// Map of "tag name as used in projects/skills" -> file slug in /public/icons
+// (svgl.app has no icon for Lucide, Leaflet, Resend or GitHub Actions under the
+// old slugs, so those use the initials fallback.)
 export const ICONS: Record<string, string> = {
   // Languages
   TypeScript: "typescript",
@@ -24,12 +28,10 @@ export const ICONS: Record<string, string> = {
   TailwindCSS: "tailwindcss",
   Motion: "framer-motion",
   "ShadCn-UI": "shadcn-ui_dark",
-  LucideReact: "lucide",
   Zustand: "zustand",
   SWR: "swr",
-  Leaflet: "leaflet",
   Zod: "zod",
-  Vite: "vitejs",
+  Vite: "vite",
 
   // Backend / runtimes
   "Node.js": "nodejs",
@@ -41,7 +43,6 @@ export const ICONS: Record<string, string> = {
   // Auth / services
   "Clerk Auth": "clerk_dark",
   NextAuth: "next-auth",
-  Resend: "resend_dark",
   Stripe: "stripe",
   Uploadthing: "uploadthing_dark",
   EdgeStore: "edgestore_dark",
@@ -74,7 +75,6 @@ export const ICONS: Record<string, string> = {
   Loki: "grafana",
   Tempo: "grafana",
   GHCR: "github_dark",
-  "GitHub Actions": "githubactions",
   k3s: "kubernetes",
   k3d: "kubernetes",
   Vercel: "vercel_dark",
@@ -199,7 +199,7 @@ export const INLINE_ICONS: Record<string, string> = {
 
   Prometheus: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path d="M63.66 2.477c33.477.007 60.957 27.296 60.914 60.5-.043 33.703-27.41 60.617-61.613 60.593-33.441-.023-60.477-27.343-60.453-61.086C2.53 29.488 30.066 2.47 63.66 2.477zm-18.504 21.25c.766 3.777.024 7.3-1.113 10.765-.785 2.399-1.871 4.711-2.52 7.145-1.07 4.008-2.28 8.039-2.726 12.136-.64 5.895 1.676 11.086 5.64 16.25l-18.222-3.835c.031.574 0 .792.062.976 1.727 5.074 4.766 9.348 8.172 13.379.36.426 1.18.644 1.79.644 18.167.036 36.335.032 54.503.008.563 0 1.317-.105 1.66-.468 3.895-4.094 6.871-8.758 8.735-14.63l-19.29 3.778c1.274-2.496 2.723-4.688 3.56-7.098 2.855-8.242 1.671-16.21-2.427-23.726-3.289-6.031-6.324-12.035-4.683-19.305-3.473 3.434-4.809 7.8-5.656 12.3-.832 4.434-1.325 8.93-1.97 13.43-.093-.136-.21-.238-.23-.355a13.317 13.317 0 0 1-.168-1.422c-.394-7.367-1.832-14.465-4.87-21.246-1.786-3.988-3.758-8.07-1.915-12.832-1.246.66-2.375 1.313-3.183 2.246-2.41 2.785-3.407 6.13-3.664 9.793-.22 3.13-.52 6.274-1.102 9.352-.61 3.234-1.574 6.402-3.75 9.375-.875-6.348-.973-12.63-6.633-16.66zM92 86.75H35.016v9.898H92zm-45.684 15.016c-.046 8.242 8.348 14.382 18.723 13.937 8.602-.371 16.211-7.137 15.559-13.937zm0 0" fill="#e75225"/></svg>`,
 
-  Zustand: `<img src="https://user-images.githubusercontent.com/958486/218346783-72be5ae3-b953-4dd7-b239-788a882fdad6.svg" alt="Zustand" style="width:100%;height:100%;object-fit:contain"/>`,
+  Zustand: `<img src="/icons/zustand.svg" alt="" style="width:100%;height:100%;object-fit:contain"/>`,
 
   "Clerk Auth": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none"><circle cx="64" cy="64" r="20" fill="#6c47ff"/><path fill="#6c47ff" fill-opacity=".4" d="M99.572 10.788c1.999 1.34 2.17 4.156.468 5.858L85.424 31.262c-1.32 1.32-3.37 1.53-5.033.678A35.846 35.846 0 0 0 64 28c-19.882 0-36 16.118-36 36a35.846 35.846 0 0 0 3.94 16.391c.851 1.663.643 3.712-.678 5.033L16.646 100.04c-1.702 1.702-4.519 1.531-5.858-.468C3.974 89.399 0 77.163 0 64 0 28.654 28.654 0 64 0c13.163 0 25.399 3.974 35.572 10.788Z"/><path fill="#6c47ff" d="M100.04 111.354c1.702 1.702 1.531 4.519-.468 5.858C89.399 124.026 77.164 128 64 128c-13.164 0-25.399-3.974-35.572-10.788-2-1.339-2.17-4.156-.468-5.858l14.615-14.616c1.322-1.32 3.37-1.53 5.033-.678A35.847 35.847 0 0 0 64 100a35.846 35.846 0 0 0 16.392-3.94c1.662-.852 3.712-.643 5.032.678l14.616 14.616Z"/></svg>`,
 
@@ -207,9 +207,9 @@ export const INLINE_ICONS: Record<string, string> = {
 
   "Convex DB": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 28 128 132" fill="none"><path fill="#F3B01C" d="M108.092 130.021c18.166-2.018 35.293-11.698 44.723-27.854-4.466 39.961-48.162 65.218-83.83 49.711-3.286-1.425-6.115-3.796-8.056-6.844-8.016-12.586-10.65-28.601-6.865-43.135 10.817 18.668 32.81 30.111 54.028 28.122Z"/><path fill="#8D2676" d="M53.401 90.174c-7.364 17.017-7.682 36.94 1.345 53.336-31.77-23.902-31.423-75.052-.388-98.715 2.87-2.187 6.282-3.485 9.86-3.683 14.713-.776 29.662 4.91 40.146 15.507-21.3.212-42.046 13.857-50.963 33.555Z"/><path fill="#EE342F" d="M114.637 61.855C103.89 46.87 87.069 36.668 68.639 36.358c35.625-16.17 79.446 10.047 84.217 48.807.444 3.598-.139 7.267-1.734 10.512-6.656 13.518-18.998 24.002-33.42 27.882 10.567-19.599 9.263-43.544-3.065-61.704Z"/></svg>`,
 
-  Uploadthing: `<img src="https://storage.googleapis.com/incident-io-status-page-logos/01J5P5HW3ZC2E73RX9NAX863NZ/uploadthing/epwhr6bz.png" alt="Uploadthing" style="width:100%;height:100%;object-fit:contain"/>`,
+  Uploadthing: `<img src="/icons/uploadthing.png" alt="" style="width:100%;height:100%;object-fit:contain"/>`,
 
-  EdgeStore: `<img src="https://edgestore.dev/img/logo-sm.png" alt="EdgeStore" style="width:100%;height:100%;object-fit:contain"/>`,
+  EdgeStore: `<img src="/icons/edgestore.png" alt="" style="width:100%;height:100%;object-fit:contain"/>`,
 
   Drizzle: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 160 160"><rect width="9.631" height="40.852" fill="#C5F74F" rx="4.816" transform="matrix(.87303 .48767 -.49721 .86763 43.48 67.304)"/><rect width="9.631" height="40.852" fill="#C5F74F" rx="4.816" transform="matrix(.87303 .48767 -.49721 .86763 76.94 46.534)"/><rect width="9.631" height="40.852" fill="#C5F74F" rx="4.816" transform="matrix(.87303 .48767 -.49721 .86763 128.424 46.535)"/><rect width="9.631" height="40.852" fill="#C5F74F" rx="4.816" transform="matrix(.87303 .48767 -.49721 .86763 94.957 67.304)"/></svg>`,
 

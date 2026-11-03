@@ -1,6 +1,7 @@
 // Single source of truth for the data controller details shown on the
-// privacy page. Fill in `ico` and `address` (OSVČ — Art. 13(1)(a) GDPR asks for
-// the controller's identity and contact details); they are rendered only when set.
+// privacy page (Art. 13(1)(a) GDPR: controller identity + contact details). The
+// controller is a private individual, not a registered business, so `ico` stays
+// unset; `address` and `ico` are rendered on the privacy page only when set.
 export const CONTROLLER = {
   name: "Jan Bojko",
   email: "honzabojko@seznam.cz",

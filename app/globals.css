@@ -109,7 +109,7 @@ a {
   --c-key: oklch(0.82 0.09 245);
   --c-string: oklch(0.86 0.1 145);
   --c-number: oklch(0.82 0.12 75);
-  --c-comment: oklch(0.5 0.005 80);
+  --c-comment: oklch(0.64 0.005 80);
   --c-punct: oklch(0.6 0.005 80);
 }
 
@@ -735,8 +735,7 @@ a {
 .hero__yaml-gutter {
   padding: 0 8px 0 14px;
   text-align: right;
-  color: var(--muted);
-  opacity: 0.5;
+  color: var(--muted); /* no opacity: dimming it dropped contrast to ~2:1 (WCAG 1.4.3) */
   user-select: none;
 }
 .hero__yaml-gutter span {
@@ -1076,7 +1075,7 @@ a {
   font-weight: 500;
 }
 .arch-diagram .arrow {
-  color: var(--accent);
+  color: var(--accent-strong);
 }
 .arch-diagram .obs {
   color: var(--muted);
@@ -1876,7 +1875,7 @@ a {
 }
 @media (max-width: 900px) {
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr); /* 0 min so long values can't force overflow */
     gap: 32px;
   }
 }
@@ -1889,9 +1888,13 @@ a {
   border-bottom: 1px solid var(--border);
   align-self: stretch;
 }
+.contact-channels a .val {
+  min-width: 0;
+  overflow-wrap: anywhere; /* 320px reflow (WCAG 1.4.10) */
+}
 .contact-channels a {
   display: grid;
-  grid-template-columns: 90px 1fr auto;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
   gap: 20px;
   align-items: center;
   flex: 1;
@@ -2009,6 +2012,23 @@ a {
   margin-top: 6px;
   align-self: flex-start;
 }
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+  padding: 10px 16px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-size: 14px;
+  font-weight: 500;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
+
 .consent {
   display: flex;
   align-items: flex-start;
@@ -2027,12 +2047,12 @@ a {
   cursor: pointer;
 }
 .consent a {
-  color: var(--accent);
+  color: var(--accent-strong);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 .consent a:hover {
-  color: var(--accent-strong);
+  color: var(--fg-strong);
 }
 .consent .req {
   color: var(--accent);
@@ -2172,8 +2192,10 @@ a {
   line-height: 1.65;
   letter-spacing: 0.01em;
 }
-.footer__trademark {
-  opacity: 0.82;
+/* Links inside running footer text must not rely on colour alone (WCAG 1.4.1). */
+.footer__credits a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* ============================================================

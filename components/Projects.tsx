@@ -112,7 +112,7 @@ function ProjActions({
         disabled
         type="button"
         title={copy.btnRepoLockedTip}
-        aria-label={copy.btnRepoLockedTip}
+        aria-label={`${copy.btnRepoLocked}: ${copy.btnRepoLockedTip}`}
       >
         <Icon name="lock" size={mono ? 12 : 14} /> {copy.btnRepoLocked}
       </button>
@@ -139,7 +139,13 @@ function FeaturedArchBody({ p, copy }: { p: Project; copy: Copy }) {
           <RichText text={p.description} />
         </p>
 
-        <div className="arch-diagram">
+        {/* Scrolls horizontally on narrow screens, so it must be keyboard-focusable. */}
+        <div
+          className="arch-diagram"
+          role="region"
+          aria-label={copy.archTopology}
+          tabIndex={0}
+        >
           <span className="comment">{copy.archTopology}</span>
           {"\n"}
           {"\n"}

@@ -5,6 +5,7 @@ import Providers from "@/components/Providers";
 import HeaderPill from "@/components/HeaderPill";
 import TopControls from "@/components/TopControls";
 import Footer from "@/components/Footer";
+import SkipLink from "@/components/SkipLink";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,8 +38,11 @@ export default function RootLayout({
     >
       <body>
         <Providers>
-          <HeaderPill />
-          <TopControls />
+          <header>
+            <SkipLink />
+            <HeaderPill />
+            <TopControls />
+          </header>
           <div style={{ paddingTop: 32 }}>
             {children}
             <Footer />

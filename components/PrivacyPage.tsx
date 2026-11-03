@@ -10,7 +10,7 @@ export default function PrivacyPage() {
   const doc = PRIVACY[language];
 
   return (
-    <main className="section privacy">
+    <main id="main" tabIndex={-1} className="section privacy">
       <div className="shell">
         <Link href="/" className="privacy__back">
           {doc.back}

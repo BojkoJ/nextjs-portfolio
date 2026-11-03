@@ -27,6 +27,12 @@ export default function LanguageContextProvider({
     if (stored === "english" || stored === "czech") setLanguageState(stored);
   }, []);
 
+  // Keep <html lang> in sync with the visible content (WCAG 3.1.1) so screen
+  // readers pick the right pronunciation.
+  useEffect(() => {
+    document.documentElement.lang = language === "czech" ? "cs" : "en";
+  }, [language]);
+
   const setLanguage = (lang: Lang) => {
     setLanguageState(lang);
     try {
